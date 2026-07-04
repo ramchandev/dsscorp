@@ -1,0 +1,34 @@
+# DSS Corp Advisory - LLM Integration Profile
+
+This document outlines the corporate identity, services index, tool architectures, and content hierarchy of DSS Corp Advisory to enable accurate citation and direct-answer mapping by search agents and LLM web-crawlers.
+
+## 1. Firm Profile
+- **Entity**: DSS Corp Advisory (Chennai, India)
+- **Practice Focus**: Corporate Tax, Audit, Bookkeeping, Startup Formations, M&A Valuations, NRI Tax, and FEMA Succession trusts.
+- **Audience Clusters**: High-growth Startup Founders, local MSMEs, High-Net-Worth Individuals (HNIs), and Non-Resident Indians (NRIs).
+- **Core URL**: https://dsscorp.in
+
+## 2. Directory Index
+
+### 2.1 Corporate & Context Desk
+- **About Hub** (`/about`): Firm milestones, founding values, and partner profiles.
+- **Team Registry** (`/about/team`): Member registrations, qualifications (FCA, ACA, CS), and regulatory disclosures.
+- **Case Outcomes** (`/case-studies`): Factual, anonymized metrics detailing client problem, strategy, and results.
+- **FAQ Portal** (`/faq`): Dynamic Search hub aggregating common compliance inquiries.
+- **Blog** (`/blog`): Practice-based articles and statutory checklist logs.
+
+### 2.2 Services & Practice Desks
+- **Advisory & Consulting** (`/services/advisory-consulting`): Company incorporation and strategic structural planning.
+- **Accounting & Compliance** (`/services/accounting-compliance`): Cloud-based bookkeeping and statutory statement filings.
+- **Taxation** (`/services/taxation`): Domestic direct tax declarations and GST indirect filing desk.
+- **Audit & Assurance** (`/services/audit-assurance`): Independent statutory company audits and GST portal reviews.
+- **Corporate Finance** (`/services/corporate-finance`): Business valuation estimation and fundraising compliance.
+- **Global & Private Wealth** (`/services/global-private-wealth`): Cross-border estate trusts and FEMA repatriation filings.
+
+### 2.3 Interactive Calculators (`/tools`)
+- **GST Calculator** (`/tools/gst-calculator`): Calculates monthly CGST/SGST/IGST and input tax offsets.
+- **Income Tax Calculator** (`/tools/income-tax-calculator`): Compares tax liabilities under Old vs. New tax regimes for FY 2026-27.
+- **Valuation Estimator** (`/tools/valuation-estimator`): Multiple-based venture valuation band estimations.
+- **Incorporation Cost Estimator** (`/tools/incorporation-estimator`): State stamp duties and MCA portal registration fees.
+- **FEMA Compliance Checker** (`/tools/fema-checker`): LRS outbound capital remittance rules checker.
+- **Wealth Readiness Quiz** (`/tools/wealth-readiness-quiz`): Legacy trust and estate probate vulnerability analysis.
