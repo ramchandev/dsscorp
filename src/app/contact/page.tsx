@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useState, Suspense, useEffect, useRef } from "react";
-import { useSearchParams } from "next/navigation";
-import { Phone, Mail, MessageSquare, MapPin, Clock, CheckCircle2 } from "lucide-react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Phone, Mail, MessageSquare, MapPin, Clock } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 
 function ContactForm() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const initialPersona = searchParams.get("persona") || "";
   const initialSubject = searchParams.get("subject") 
@@ -19,7 +20,8 @@ function ContactForm() {
   const [phone, setPhone] = useState("");
   const [notes, setNotes] = useState(initialSubject);
   const [profile, setProfile] = useState(initialPersona);
-  const [isSuccess, setIsSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const nameInputRef = useRef<HTMLInputElement>(null);
   const formContainerRef = useRef<HTMLDivElement>(null);
@@ -34,13 +36,41 @@ function ContactForm() {
     }
   }, [searchParams]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email) {
       alert("Name and Email are required.");
       return;
     }
-    setIsSuccess(true);
+    
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, phone, notes, profile }),
+      });
+
+      if (!response.ok) {
+        const payload = await response.json().catch(() => null);
+        throw new Error(payload?.error || "Failed to send your request. Please try again.");
+      }
+
+      sessionStorage.setItem(
+        "dsscorp_contact_submission",
+        JSON.stringify({ name, email })
+      );
+      router.push("/contact/thank-you");
+    } catch (err: any) {
+      console.error("Failed to submit contact scoping form:", err);
+      setError(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -49,16 +79,7 @@ function ContactForm() {
         Contact Us
       </h3>
 
-      {isSuccess ? (
-        <div className="bg-chartreuse/10 border border-chartreuse/35 p-6 rounded-lg text-center space-y-4 animate-fade-in font-body">
-          <CheckCircle2 className="w-10 h-10 text-navy mx-auto" />
-          <h4 className="font-heading font-semibold text-navy text-sm">Consultation Scheduled</h4>
-          <p className="text-xs text-text-secondary leading-relaxed">
-            Thank you, <strong>{name}</strong>. A senior CA partner from our team will contact you via <strong>{email}</strong> within 24 hours.
-          </p>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} className="space-y-4 font-body text-xs">
+      <form onSubmit={handleSubmit} className="space-y-4 font-body text-xs">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block font-heading font-semibold text-navy uppercase mb-1">Full Name</label>
@@ -120,12 +141,18 @@ function ContactForm() {
 
           <button
             type="submit"
-            className="w-full bg-navy hover:bg-navy-secondary text-card-white font-heading font-semibold text-xs py-3 rounded border-t border-t-chartreuse transition-all flex items-center justify-center gap-2"
+            disabled={isSubmitting}
+            className="w-full bg-navy hover:bg-navy-secondary text-card-white font-heading font-semibold text-xs py-3 rounded border-t border-t-chartreuse transition-all flex items-center justify-center gap-2 disabled:opacity-75 disabled:cursor-not-allowed"
           >
-            Send to DSS Team
+            {isSubmitting ? "Sending Scoping Request..." : "Send to DSS Team"}
           </button>
+
+          {error && (
+            <p className="text-xs text-red-500 font-medium text-center mt-2">
+              {error}
+            </p>
+          )}
         </form>
-      )}
     </div>
   );
 }

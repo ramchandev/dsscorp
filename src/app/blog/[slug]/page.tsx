@@ -29,6 +29,25 @@ export async function generateMetadata({ params }: PageProps) {
   return {
     title: `${article.title} | DSS Corp Blog`,
     description: article.excerpt,
+    openGraph: {
+      title: `${article.title} | DSS Corp Blog`,
+      description: article.excerpt,
+      images: [
+        {
+          url: article.image,
+          width: 1200,
+          height: 630,
+          alt: article.title,
+        },
+      ],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${article.title} | DSS Corp Blog`,
+      description: article.excerpt,
+      images: [article.image],
+    },
   };
 }
 
