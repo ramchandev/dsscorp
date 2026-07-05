@@ -4,6 +4,7 @@ import { Percent, TrendingUp, Calendar, Globe, Award } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import PersonaBadge from "@/components/PersonaBadge";
+import { createPageMetadata } from "@/lib/seo";
 
 const toolsList = [
   {
@@ -56,10 +57,12 @@ const toolsList = [
   },
 ];
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Interactive Calculators & Tools | DSS Corp Advisory",
-  description: "Free interactive calculators for GST liability, startup valuations, MCA registration timelines, FEMA compliance, and estate planning readiness.",
-};
+  description:
+    "Free interactive calculators for GST liability, startup valuations, MCA registration timelines, FEMA compliance, and estate planning readiness.",
+  path: "/tools",
+});
 
 export default function ToolsHub() {
   return (

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ToolPageClient from "@/components/ToolPageClient";
+import { createPageMetadata } from "@/lib/seo";
 
 interface ToolConfig {
   slug: string;
@@ -146,11 +147,19 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const tool = toolsDb[slug];
-  if (!tool) return { title: "Advisory Tool | DSS Corp Advisory" };
-  return {
+  if (!tool) {
+    return createPageMetadata({
+      title: "Advisory Tool | DSS Corp Advisory",
+      description: "Interactive tax, compliance, and wealth advisory calculators.",
+      path: "/tools",
+    });
+  }
+
+  return createPageMetadata({
     title: `${tool.name} | DSS Corp Advisory`,
     description: tool.subhead,
-  };
+    path: `/tools/${tool.slug}`,
+  });
 }
 
 export default async function ToolPage({ params }: PageProps) {

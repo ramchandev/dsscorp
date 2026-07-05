@@ -1,14 +1,16 @@
 import React from "react";
+import { SITE_URL } from "@/lib/seo";
 
 export default function StructuredData() {
-  const schema = {
+  const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "AccountingService",
     "name": "DSS Corp Advisory",
     "alternateName": "Dynamic Strategic Solutions",
     "description": "Financial clarity for founders, businesses, and families who can't afford to get it wrong. Led by ICAI-registered Chartered Accountants in Chennai.",
-    "url": "https://dsscorp.in",
-    "logo": "https://dsscorp.in/logo.png",
+    "url": SITE_URL,
+    "logo": `${SITE_URL}/og-default.jpg`,
+    "image": `${SITE_URL}/og-default.jpg`,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Flat 5, SRI Apartments, 2nd Floor, New No.19, Moosa Street, T.Nagar",
@@ -30,10 +32,32 @@ export default function StructuredData() {
     ]
   };
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "DSS Corp Advisory",
+    "url": SITE_URL,
+    "description": "Chartered Accountancy, taxation, audit, and FEMA wealth advisory in Chennai, India.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DSS Corp Advisory",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${SITE_URL}/og-default.jpg`,
+      },
+    },
+  };
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+    </>
   );
 }

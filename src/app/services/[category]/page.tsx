@@ -8,6 +8,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import CTABand from "@/components/CTABand";
 import PersonaBadge from "@/components/PersonaBadge";
 import { servicesDb, categoriesDb } from "@/lib/services";
+import { createPageMetadata } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{
@@ -24,11 +25,19 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps) {
   const { category } = await params;
   const data = categoriesDb[category];
-  if (!data) return { title: "Practice Category | DSS Corp Advisory" };
-  return {
+  if (!data) {
+    return createPageMetadata({
+      title: "Practice Category | DSS Corp Advisory",
+      description: "Explore Chartered Accountancy practice categories at DSS Corp Advisory.",
+      path: "/services",
+    });
+  }
+
+  return createPageMetadata({
     title: `${data.name} | DSS Corp Advisory Services`,
     description: data.directAnswer,
-  };
+    path: `/services/${data.slug}`,
+  });
 }
 
 export default async function CategoryHubPage({ params }: PageProps) {

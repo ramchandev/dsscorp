@@ -6,11 +6,14 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import CTABand from "@/components/CTABand";
 import { categoriesDb, servicesDb } from "@/lib/services";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Our Services | DSS Corp Advisory Chennai",
-  description: "Explore our 6 practice categories covering Startup Mentorship, Bookkeeping, Corporate Tax, Audits, M&A Valuations, and global FEMA compliance.",
-};
+  description:
+    "Explore our 6 practice categories covering Startup Mentorship, Bookkeeping, Corporate Tax, Audits, M&A Valuations, and global FEMA compliance.",
+  path: "/services",
+});
 
 const categoryIcons: Record<string, React.ReactNode> = {
   "advisory-consulting": <Briefcase className="w-6 h-6 text-cyan" />,

@@ -9,6 +9,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import PersonaBadge from "@/components/PersonaBadge";
 import FAQAccordion from "@/components/FAQAccordion";
 import { blogDb } from "@/lib/blog";
+import { createPageMetadata } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{
@@ -25,30 +26,21 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const article = blogDb[slug];
-  if (!article) return { title: "Blog Article | DSS Corp Advisory" };
-  return {
+  if (!article) {
+    return createPageMetadata({
+      title: "Blog Article | DSS Corp Advisory",
+      description: "Tax, compliance, and wealth advisory insights from DSS Corp Advisory.",
+      path: "/blog",
+    });
+  }
+
+  return createPageMetadata({
     title: `${article.title} | DSS Corp Blog`,
     description: article.excerpt,
-    openGraph: {
-      title: `${article.title} | DSS Corp Blog`,
-      description: article.excerpt,
-      images: [
-        {
-          url: article.image,
-          width: 1200,
-          height: 630,
-          alt: article.title,
-        },
-      ],
-      type: "article",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${article.title} | DSS Corp Blog`,
-      description: article.excerpt,
-      images: [article.image],
-    },
-  };
+    path: `/blog/${article.slug}`,
+    ogImage: article.image,
+    type: "article",
+  });
 }
 
 export default async function InsightArticlePage({ params }: PageProps) {

@@ -2,11 +2,14 @@ import React from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Terms of Service | DSS Corp Advisory",
-  description: "Read our terms of service and website usage disclaimer policy regarding regulatory calculators and legal accounting inputs.",
-};
+  description:
+    "Read our terms of service and website usage disclaimer policy regarding regulatory calculators and legal accounting inputs.",
+  path: "/terms-of-service",
+});
 
 export default function TermsOfServicePage() {
   const crumbs = [

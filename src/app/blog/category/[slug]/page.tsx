@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PersonaBadge from "@/components/PersonaBadge";
 import { blogDb } from "@/lib/blog";
+import { createPageMetadata } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{
@@ -33,11 +34,19 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const name = categoriesMap[slug];
-  if (!name) return { title: "Blog Category | DSS Corp Advisory" };
-  return {
+  if (!name) {
+    return createPageMetadata({
+      title: "Blog Category | DSS Corp Advisory",
+      description: "Browse tax, compliance, and wealth advisory articles by category.",
+      path: "/blog",
+    });
+  }
+
+  return createPageMetadata({
     title: `${name} Blog | DSS Corp Advisory`,
     description: `Access expert tax, compliance, and wealth advisory blog articles on ${name} written by our practicing Chartered Accountants.`,
-  };
+    path: `/blog/category/${slug}`,
+  });
 }
 
 export default async function InsightsCategoryPage({ params }: PageProps) {

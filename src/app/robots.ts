@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { absoluteUrl } from "@/lib/seo";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,6 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/contact/thank-you"],
       },
       {
         userAgent: "GPTBot",
@@ -32,6 +34,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://dsscorp.in/sitemap.xml",
+    sitemap: absoluteUrl("/sitemap.xml"),
   };
 }

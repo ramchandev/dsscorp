@@ -3,15 +3,14 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import ThankYouContent from "./ThankYouContent";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Thank You | DSS Corp Advisory",
   description: "Your advisory scoping request has been received by the DSS Corp partner desk.",
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
+  path: "/contact/thank-you",
+  noIndex: true,
+});
 
 export default function ContactThankYouPage() {
   const crumbs = [

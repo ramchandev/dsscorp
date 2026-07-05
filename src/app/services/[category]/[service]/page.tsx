@@ -9,6 +9,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import CTABand from "@/components/CTABand";
 import ServiceHeroIllustration from "@/components/ServiceHeroIllustration";
 import { servicesDb } from "@/lib/services";
+import { createPageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return Object.values(servicesDb).map((s) => ({
@@ -28,14 +29,18 @@ export async function generateMetadata({ params }: PageProps) {
   const { service: serviceSlug } = await params;
   const service = servicesDb[serviceSlug];
   if (!service) {
-    return {
+    return createPageMetadata({
       title: "Advisory Service | DSS Corp Advisory",
-    };
+      description: "Chartered Accountancy and advisory services in Chennai, India.",
+      path: "/services",
+    });
   }
-  return {
+
+  return createPageMetadata({
     title: `${service.serviceName} | DSS Corp Advisory`,
     description: service.directAnswer.slice(0, 155) + "...",
-  };
+    path: `/services/${service.category}/${service.slug}`,
+  });
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {

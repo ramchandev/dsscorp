@@ -8,6 +8,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import PersonaBadge from "@/components/PersonaBadge";
 import CTABand from "@/components/CTABand";
 import { caseStudiesDb } from "@/lib/case-studies";
+import { createPageMetadata } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{
@@ -24,11 +25,19 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const cs = caseStudiesDb[slug];
-  if (!cs) return { title: "Case Study | DSS Corp Advisory" };
-  return {
+  if (!cs) {
+    return createPageMetadata({
+      title: "Case Study | DSS Corp Advisory",
+      description: "Client outcomes and case studies from DSS Corp Advisory.",
+      path: "/case-studies",
+    });
+  }
+
+  return createPageMetadata({
     title: `${cs.title} | DSS Corp Outcomes`,
     description: cs.description,
-  };
+    path: `/case-studies/${cs.slug}`,
+  });
 }
 
 export default async function CaseStudyDetailPage({ params }: PageProps) {

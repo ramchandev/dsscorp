@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import CTABand from "@/components/CTABand";
+import { createPageMetadata } from "@/lib/seo";
 
 const corePillars = [
   {
@@ -33,10 +34,12 @@ const corePillars = [
   },
 ];
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "About Our Firm & Values | DSS Corp Advisory",
-  description: "Learn about the mission, vision, core pillars, and professional credentials behind DSS Corp Advisory in Chennai.",
-};
+  description:
+    "Learn about the mission, vision, core pillars, and professional credentials behind DSS Corp Advisory in Chennai.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   const crumbs = [

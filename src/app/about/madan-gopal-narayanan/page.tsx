@@ -4,11 +4,14 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import CTABand from "@/components/CTABand";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "CA Madan Gopal Narayanan - Senior Partner | DSS Corp Advisory",
-  description: "Read the professional bio, banking audit expertise, and credentials timeline of CA Madan Gopal Narayanan.",
-};
+  description:
+    "Read the professional bio, banking audit expertise, and credentials timeline of CA Madan Gopal Narayanan.",
+  path: "/about/madan-gopal-narayanan",
+});
 
 const experienceList = [
   "Central Statutory Audit of Public Sector Banks & Private Sector Banks",
