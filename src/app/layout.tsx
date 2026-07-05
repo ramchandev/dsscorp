@@ -25,6 +25,8 @@ const inter = Inter({
   display: "swap",
 });
 
+const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
   ...createPageMetadata({
     title: `${SITE_NAME} | Chartered Accountants & Strategic Partners`,
@@ -35,6 +37,11 @@ export const metadata: Metadata = {
   appleWebApp: {
     title: "DSS CORP",
   },
+  ...(googleSiteVerification && {
+    verification: {
+      google: googleSiteVerification,
+    },
+  }),
   robots: {
     index: true,
     follow: true,
