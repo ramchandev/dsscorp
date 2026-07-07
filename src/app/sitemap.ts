@@ -1,9 +1,13 @@
 import type { MetadataRoute } from "next";
 import { blogDb } from "@/lib/blog";
+import {
+  BLOG_POSTS_PER_PAGE,
+  getAllArticlesSorted,
+  getArticlePath,
+} from "@/lib/blog-utils";
 import { caseStudiesDb } from "@/lib/case-studies";
 import { categoriesDb, servicesDb } from "@/lib/services";
 import { absoluteUrl } from "@/lib/seo";
-import { getArticlePath } from "@/lib/blog-utils";
 
 const TOOL_SLUGS = [
   "gst-calculator",
@@ -14,22 +18,21 @@ const TOOL_SLUGS = [
   "wealth-readiness-quiz",
 ];
 
-const BLOG_CATEGORY_SLUGS = [
-  "advisory-consulting",
-  "accounting-compliance",
-  "taxation",
-  "audit-assurance",
-  "corporate-finance",
-  "global-private-wealth",
-];
+function toLastModified(article: { publishedAt?: string; date: string }): Date {
+  const timestamp = article.publishedAt
+    ? Date.parse(article.publishedAt)
+    : Date.parse(article.date);
 
-function parseArticleDate(date: string): Date {
-  const parsed = Date.parse(date);
-  return Number.isNaN(parsed) ? new Date("2026-07-01") : new Date(parsed);
+  return Number.isNaN(timestamp) ? new Date("2026-07-01") : new Date(timestamp);
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
+  const articles = getAllArticlesSorted();
+  const newestArticleDate = articles.length
+    ? toLastModified(articles[0])
+    : now;
+  const totalBlogPages = Math.max(1, Math.ceil(articles.length / BLOG_POSTS_PER_PAGE));
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: absoluteUrl("/"), lastModified: now, changeFrequency: "weekly", priority: 1 },
@@ -42,13 +45,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     { url: absoluteUrl("/services"), lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: absoluteUrl("/contact"), lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: absoluteUrl("/blog"), lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    {
+      url: absoluteUrl("/blog"),
+      lastModified: newestArticleDate,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
     { url: absoluteUrl("/case-studies"), lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: absoluteUrl("/tools"), lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: absoluteUrl("/faq"), lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: absoluteUrl("/privacy-policy"), lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: absoluteUrl("/terms-of-service"), lastModified: now, changeFrequency: "yearly", priority: 0.3 },
   ];
+
+  const blogPaginationPages: MetadataRoute.Sitemap = Array.from(
+    { length: totalBlogPages - 1 },
+    (_, index) => ({
+      url: absoluteUrl(`/blog?page=${index + 2}`),
+      lastModified: newestArticleDate,
+      changeFrequency: "weekly" as const,
+      priority: 0.55,
+    })
+  );
 
   const categoryPages: MetadataRoute.Sitemap = Object.keys(categoriesDb).map((slug) => ({
     url: absoluteUrl(`/services/${slug}`),
@@ -64,16 +82,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  const blogPages: MetadataRoute.Sitemap = Object.values(blogDb).map((article) => ({
+  const blogPages: MetadataRoute.Sitemap = articles.map((article) => ({
     url: absoluteUrl(getArticlePath(article)),
-    lastModified: parseArticleDate(article.date),
+    lastModified: toLastModified(article),
     changeFrequency: "monthly",
     priority: 0.75,
   }));
 
-  const blogCategoryPages: MetadataRoute.Sitemap = BLOG_CATEGORY_SLUGS.map((slug) => ({
+  const blogCategorySlugs = [
+    ...new Set(Object.values(blogDb).map((article) => article.category)),
+  ].sort();
+
+  const blogCategoryPages: MetadataRoute.Sitemap = blogCategorySlugs.map((slug) => ({
     url: absoluteUrl(`/blog/category/${slug}`),
-    lastModified: now,
+    lastModified: newestArticleDate,
     changeFrequency: "weekly",
     priority: 0.65,
   }));
@@ -94,6 +116,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPages,
+    ...blogPaginationPages,
     ...categoryPages,
     ...servicePages,
     ...blogPages,
