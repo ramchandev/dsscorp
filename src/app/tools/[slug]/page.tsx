@@ -158,7 +158,7 @@ export async function generateMetadata({ params }: PageProps) {
   return createPageMetadata({
     title: `${tool.name} | DSS Corp Advisory`,
     description: tool.subhead,
-    path: `/tools/${tool.slug}`,
+    path: `/tools/${slug}`,
   });
 }
 

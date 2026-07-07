@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: PageProps) {
   return createPageMetadata({
     title: `${article.title} | DSS Corp Blog`,
     description: article.excerpt,
-    path: `/blog/${article.slug}`,
+    path: `/blog/${slug}`,
     ogImage: article.image,
     type: "article",
   });

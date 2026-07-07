@@ -26,8 +26,10 @@ interface PageProps {
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const { service: serviceSlug } = await params;
+  const { category, service: serviceSlug } = await params;
   const service = servicesDb[serviceSlug];
+  const canonicalPath = `/services/${category}/${serviceSlug}`;
+
   if (!service) {
     return createPageMetadata({
       title: "Advisory Service | DSS Corp Advisory",
@@ -39,7 +41,7 @@ export async function generateMetadata({ params }: PageProps) {
   return createPageMetadata({
     title: `${service.serviceName} | DSS Corp Advisory`,
     description: service.directAnswer.slice(0, 155) + "...",
-    path: `/services/${service.category}/${service.slug}`,
+    path: canonicalPath,
   });
 }
 

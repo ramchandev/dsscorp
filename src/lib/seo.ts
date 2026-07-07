@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = "https://dsscorp.in";
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://dsscorp.in";
 export const SITE_NAME = "DSS Corp Advisory";
 export const DEFAULT_DESCRIPTION =
   "Financial clarity for founders, businesses, and families who can't afford to get it wrong. Led by Certified Chartered Accountants in Chennai.";
@@ -15,25 +16,44 @@ type PageMetadataOptions = {
   type?: "website" | "article";
 };
 
+/** Normalizes a route to a self-referencing relative canonical path. */
+export function normalizeCanonicalPath(path = "/"): string {
+  if (!path || path === "/") {
+    return "/";
+  }
+
+  const withLeadingSlash = path.startsWith("/") ? path : `/${path}`;
+  return withLeadingSlash.replace(/\/+$/, "") || "/";
+}
+
+export function pageCanonical(path: string): Pick<Metadata, "alternates"> {
+  return {
+    alternates: {
+      canonical: normalizeCanonicalPath(path),
+    },
+  };
+}
+
 export function absoluteUrl(path = ""): string {
-  return `${SITE_URL}${path.startsWith("/") || path === "" ? path : `/${path}`}`;
+  return `${SITE_URL}${normalizeCanonicalPath(path)}`;
 }
 
 export function createPageMetadata({
   title,
   description,
-  path = "",
+  path = "/",
   ogImage = DEFAULT_OG_IMAGE,
   noIndex = false,
   type = "website",
 }: PageMetadataOptions): Metadata {
+  const canonicalPath = normalizeCanonicalPath(path);
   const url = absoluteUrl(path);
 
   return {
     title,
     description,
     alternates: {
-      canonical: url,
+      canonical: canonicalPath,
     },
     openGraph: {
       title,

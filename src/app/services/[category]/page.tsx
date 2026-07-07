@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: PageProps) {
   return createPageMetadata({
     title: `${data.name} | DSS Corp Advisory Services`,
     description: data.directAnswer,
-    path: `/services/${data.slug}`,
+    path: `/services/${category}`,
   });
 }
 

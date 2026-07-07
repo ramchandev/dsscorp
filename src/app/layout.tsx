@@ -5,7 +5,6 @@ import StructuredData from "@/components/StructuredData";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import {
-  createPageMetadata,
   DEFAULT_DESCRIPTION,
   SITE_NAME,
   SITE_URL,
@@ -28,12 +27,9 @@ const inter = Inter({
 const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
-  ...createPageMetadata({
-    title: `${SITE_NAME} | Chartered Accountants & Strategic Partners`,
-    description: DEFAULT_DESCRIPTION,
-    path: "/",
-  }),
   metadataBase: new URL(SITE_URL),
+  title: `${SITE_NAME} | Chartered Accountants & Strategic Partners`,
+  description: DEFAULT_DESCRIPTION,
   appleWebApp: {
     title: "DSS CORP",
   },
