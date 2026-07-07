@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PersonaBadge from "@/components/PersonaBadge";
 import { blogDb } from "@/lib/blog";
+import { getArticlePath } from "@/lib/blog-utils";
 import { createPageMetadata } from "@/lib/seo";
 
 interface PageProps {
@@ -133,7 +134,7 @@ export default async function InsightsCategoryPage({ params }: PageProps) {
                         </div>
 
                         <h2 className="font-heading font-semibold text-base sm:text-lg text-navy group-hover:text-cyan transition-colors mb-3 line-clamp-2">
-                          <Link href={`/blog/${art.slug}`}>
+                          <Link href={getArticlePath(art)}>
                             {art.title}
                           </Link>
                         </h2>
@@ -152,7 +153,7 @@ export default async function InsightsCategoryPage({ params }: PageProps) {
                         </div>
 
                         <Link
-                          href={`/blog/${art.slug}`}
+                          href={getArticlePath(art)}
                           className="inline-flex items-center gap-1 text-xs font-body font-semibold text-navy group-hover:text-cyan transition-colors"
                         >
                           Read <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />

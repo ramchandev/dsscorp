@@ -1,4 +1,5 @@
 import React from "react";
+import { getBlogCoverImage } from "@/lib/blog-covers";
 
 interface IllustrationProps {
   category: string;
@@ -16,11 +17,11 @@ export default function ServiceHeroIllustration({ category, slug }: Illustration
     // Accounting & Compliance
     "bookkeeping-accounting": null, // Explicitly removed as requested
     "financial-reporting-statements": "/service-transaction-support.jpg", // Moved to a clean transaction desk photo
-    "payroll-processing-compliance": "/blog-gst-calendar.jpg",
+    "payroll-processing-compliance": getBlogCoverImage("gst-calendar-penalty-guide"),
     "secretarial-roc-filings": "/service-tax-litigation.jpg",
 
     // Taxation
-    "gst-indirect-tax": "/blog-gst-ecommerce.jpg",
+    "gst-indirect-tax": getBlogCoverImage("gst-e-commerce-india"),
     "corporate-tax-advisory": "/service-taxation.jpg",
     "direct-taxation-income-tax": "/service-taxation.jpg",
     "tax-litigation-representation": "/service-tax-litigation.jpg",
@@ -43,12 +44,12 @@ export default function ServiceHeroIllustration({ category, slug }: Illustration
     // Global & Private Wealth
     "nri-tax-planning-compliance": "/service-hni-nri-tax.jpg",
     "setting-up-indian-subsidiaries": "/service-advisory.jpg",
-    "wealth-succession-planning": "/blog-succession-planning.jpg",
-    "repatriation-fema-advisory": "/blog-nri-repatriation.jpg",
+    "wealth-succession-planning": getBlogCoverImage("succession-planning-primer"),
+    "repatriation-fema-advisory": getBlogCoverImage("nri-repatriation-fema-guide"),
     "offshore-structuring-tax-optimization": "/service-wealth.jpg",
-    "investment-portfolio-structuring": "/blog-nri-mutual-funds.jpg",
+    "investment-portfolio-structuring": getBlogCoverImage("nri-mutual-funds-fema"),
     "real-estate-asset-advisory": "/service-wealth.jpg",
-    "philanthropy-csr-structuring": "/blog-succession-planning.jpg",
+    "philanthropy-csr-structuring": getBlogCoverImage("succession-planning-primer"),
   };
 
   // Fallback category images

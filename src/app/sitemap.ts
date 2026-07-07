@@ -3,6 +3,7 @@ import { blogDb } from "@/lib/blog";
 import { caseStudiesDb } from "@/lib/case-studies";
 import { categoriesDb, servicesDb } from "@/lib/services";
 import { absoluteUrl } from "@/lib/seo";
+import { getArticlePath } from "@/lib/blog-utils";
 
 const TOOL_SLUGS = [
   "gst-calculator",
@@ -64,7 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const blogPages: MetadataRoute.Sitemap = Object.values(blogDb).map((article) => ({
-    url: absoluteUrl(`/blog/${article.slug}`),
+    url: absoluteUrl(getArticlePath(article)),
     lastModified: parseArticleDate(article.date),
     changeFrequency: "monthly",
     priority: 0.75,

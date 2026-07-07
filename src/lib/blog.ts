@@ -1,21 +1,9 @@
-export interface InsightArticle {
-  slug: string;
-  title: string;
-  subhead?: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  category: "advisory-consulting" | "accounting-compliance" | "taxation" | "audit-assurance" | "corporate-finance" | "global-private-wealth";
-  categoryName: string;
-  author: { name: string; credential: string };
-  persona: "startup" | "msme" | "hni" | "nri";
-  directAnswer: string;
-  bullets?: string[];
-  sections: { heading: string; body: string }[];
-  faqs: { question: string; answer: string }[];
-  relatedService: { name: string; href: string };
-  image: string;
-}
+import { BLOG_AUTHORS } from "@/lib/blog-authors";
+import { getBlogCoverImage } from "@/lib/blog-covers";
+import { newBlogArticles } from "@/lib/blog-new-articles";
+import type { InsightArticle } from "@/lib/blog-types";
+
+export type { InsightArticle } from "@/lib/blog-types";
 
 export const blogDb: Record<string, InsightArticle> = {
   "gst-e-commerce-india": {
@@ -23,10 +11,11 @@ export const blogDb: Record<string, InsightArticle> = {
     title: "How is GST calculated for e-commerce sellers in India?",
     excerpt: "Learn about multi-warehouse GST registration, input tax credits, and portal compliance checklists.",
     date: "June 28, 2026",
+    publishedAt: "2026-06-28",
     readTime: "5 Min Read",
     category: "taxation",
     categoryName: "Taxation",
-    author: { name: "Ramanathan S", credential: "FCA, Senior Taxation Partner" },
+    author: BLOG_AUTHORS.deepa,
     persona: "msme",
     directAnswer: "GST for e-commerce sellers in India is calculated at standard rates (typically 18% for services and electronic goods) applied to the taxable sales value. Sellers must register for GST irrespective of turnover thresholds once they cross state boundaries, and e-commerce operators must collect 1% Tax Collected at Source (TCS) on all supplier transactions.",
     sections: [
@@ -54,17 +43,18 @@ export const blogDb: Record<string, InsightArticle> = {
       },
     ],
     relatedService: { name: "GST & Indirect Tax Advisory", href: "/services/taxation/gst-indirect-tax" },
-    image: "/blog-gst-ecommerce.jpg"
+    image: getBlogCoverImage("gst-e-commerce-india")
   },
   "nri-mutual-funds-fema": {
     slug: "nri-mutual-funds-fema",
     title: "Can NRIs invest in Indian mutual funds? FEMA guidelines",
     excerpt: "Understand NRE vs NRO remittance rules, tax declarations, and double taxation treaty benefits.",
     date: "June 15, 2026",
+    publishedAt: "2026-06-15",
     readTime: "6 Min Read",
     category: "global-private-wealth",
     categoryName: "Global & Private Wealth",
-    author: { name: "Krishnan N", credential: "ACA, FEMA & Cross-Border Desk" },
+    author: BLOG_AUTHORS.madhan,
     persona: "nri",
     directAnswer: "Yes. Non-Resident Indians (NRIs) can legally invest in Indian mutual funds under FEMA rules. Investments must be routed through Non-Resident External (NRE) accounts for repatriable funds or Non-Resident Ordinary (NRO) accounts for non-repatriable investments, subject to strict FATCA reporting declarations.",
     sections: [
@@ -92,7 +82,7 @@ export const blogDb: Record<string, InsightArticle> = {
       },
     ],
     relatedService: { name: "NRI Tax Planning & Compliance", href: "/services/global-private-wealth/nri-tax-planning-compliance" },
-    image: "/blog-nri-mutual-funds.jpg"
+    image: getBlogCoverImage("nri-mutual-funds-fema")
   },
   "startup-compliance-checklist": {
     slug: "startup-compliance-checklist",
@@ -100,10 +90,11 @@ export const blogDb: Record<string, InsightArticle> = {
     subhead: "A step-by-step statutory regulatory roadmap for early-stage founders in India.",
     excerpt: "A comprehensive checklist detailing PAN, TAN, GST, PF, ESIC, and corporate vesting setup targets.",
     date: "July 01, 2026",
+    publishedAt: "2026-07-01",
     readTime: "8 Min Read",
     category: "advisory-consulting",
     categoryName: "Advisory & Consulting",
-    author: { name: "Sharmila Rajan", credential: "ACA, CS, Lead Partner" },
+    author: BLOG_AUTHORS.deepa,
     persona: "startup",
     directAnswer: "Early-stage founders must navigate diverse filings immediately post-incorporation. Failure to file PAN, TAN, or register for PF/ESIC within timeline triggers penalties. This checklist itemizes compliance gates for the first 180 days.",
     bullets: [
@@ -129,7 +120,7 @@ export const blogDb: Record<string, InsightArticle> = {
       }
     ],
     relatedService: { name: "Startup Advisory & Mentorship", href: "/services/advisory-consulting/startup-advisory-mentorship" },
-    image: "/blog-startup-compliance.jpg"
+    image: getBlogCoverImage("startup-compliance-checklist")
   },
   "gst-calendar-penalty-guide": {
     slug: "gst-calendar-penalty-guide",
@@ -137,10 +128,11 @@ export const blogDb: Record<string, InsightArticle> = {
     subhead: "Important recurring dates and late-filing penalty rules for registered GST units.",
     excerpt: "Filing dates and penalty calculations for GSTR-1, GSTR-3B, and annual GSTR-9/9C reconciliation.",
     date: "June 20, 2026",
+    publishedAt: "2026-06-20",
     readTime: "6 Min Read",
     category: "taxation",
     categoryName: "Taxation",
-    author: { name: "Ramanathan S", credential: "FCA, Senior Taxation Partner" },
+    author: BLOG_AUTHORS.deepa,
     persona: "msme",
     directAnswer: "GST portals enforce automated late fees of INR 50 per day for delay in GSTR-1 or GSTR-3B filings. In addition, Input Tax Credit (ITC) reconciliation mismatches trigger tax scrutiny. This calendar lists filing schedules and audit guidelines.",
     bullets: [
@@ -166,7 +158,7 @@ export const blogDb: Record<string, InsightArticle> = {
       },
     ],
     relatedService: { name: "GST & Indirect Tax Advisory", href: "/services/taxation/gst-indirect-tax" },
-    image: "/blog-gst-calendar.jpg"
+    image: getBlogCoverImage("gst-calendar-penalty-guide")
   },
   "succession-planning-primer": {
     slug: "succession-planning-primer",
@@ -174,10 +166,11 @@ export const blogDb: Record<string, InsightArticle> = {
     subhead: "Private trusts, registered wills, and corporate estate transition guides.",
     excerpt: "A guide detailing private trust registrations, wills, and legacy estate protections for HNI families.",
     date: "May 10, 2026",
+    publishedAt: "2026-05-10",
     readTime: "7 Min Read",
     category: "global-private-wealth",
     categoryName: "Global & Private Wealth",
-    author: { name: "Krishnan N", credential: "ACA, FEMA & Cross-Border Desk" },
+    author: BLOG_AUTHORS.madhan,
     persona: "hni",
     directAnswer: "Transitioning family wealth across generations requires insulating assets from probate delays and partition disputes. This guide reviews trust creations, Will registers, and tax-efficient transfer vehicles in India.",
     bullets: [
@@ -203,7 +196,7 @@ export const blogDb: Record<string, InsightArticle> = {
       },
     ],
     relatedService: { name: "Wealth & Succession Planning", href: "/services/global-private-wealth/wealth-succession-planning" },
-    image: "/blog-succession-planning.jpg"
+    image: getBlogCoverImage("succession-planning-primer")
   },
   "nri-repatriation-fema-guide": {
     slug: "nri-repatriation-fema-guide",
@@ -211,10 +204,11 @@ export const blogDb: Record<string, InsightArticle> = {
     subhead: "repatriating property sale proceeds and inheritance funds out of India.",
     excerpt: "remittance guidelines and Form 15CA/15CB certificate compliance parameters.",
     date: "April 18, 2026",
+    publishedAt: "2026-04-18",
     readTime: "9 Min Read",
     category: "global-private-wealth",
     categoryName: "Global & Private Wealth",
-    author: { name: "Krishnan N", credential: "ACA, FEMA & Cross-Border Desk" },
+    author: BLOG_AUTHORS.madhan,
     persona: "nri",
     directAnswer: "repatriating funds from Indian property sales requires clearing capital gains taxes and complying with RBI's annual USD 1 Million LRS caps. This guide maps FEMA bank compliance codes and Form 15CA/15CB processes.",
     bullets: [
@@ -240,6 +234,7 @@ export const blogDb: Record<string, InsightArticle> = {
       },
     ],
     relatedService: { name: "Repatriation & FEMA Advisory", href: "/services/global-private-wealth/repatriation-fema-advisory" },
-    image: "/blog-nri-repatriation.jpg"
+    image: getBlogCoverImage("nri-repatriation-fema-guide")
   },
+  ...newBlogArticles,
 };

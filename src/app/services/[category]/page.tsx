@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import CTABand from "@/components/CTABand";
 import PersonaBadge from "@/components/PersonaBadge";
+import FAQAccordion from "@/components/FAQAccordion";
 import { servicesDb, categoriesDb } from "@/lib/services";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -33,12 +34,41 @@ export async function generateMetadata({ params }: PageProps) {
     });
   }
 
+  // Targeted SEO title and description specifically for the advisory-consulting category
+  if (category === "advisory-consulting") {
+    return createPageMetadata({
+      title: "Business Advisory Services Chennai | Corporate Advisory - DSS Corp",
+      description:
+        "DSS Corp offers premier business advisory services in Chennai. Explore our corporate advisory services and startup consulting in India for sustainable growth.",
+      path: `/services/${category}`,
+    });
+  }
+
   return createPageMetadata({
     title: `${data.name} | DSS Corp Advisory Services`,
     description: data.directAnswer,
     path: `/services/${category}`,
   });
 }
+
+const advisoryFaqs = [
+  {
+    question: "What are the benefits of hiring business advisory services in Chennai?",
+    answer: "Hiring business advisory services in Chennai gives companies direct access to qualified strategic partners, deep compliance expertise under Indian corporate laws, and localized representation for regulatory filings. DSS Corp helps scale operations while maintaining absolute compliance.",
+  },
+  {
+    question: "Does DSS Corp provide startup consulting in India for overseas founders?",
+    answer: "Yes, we offer specialized startup consulting in India for NRI investors and international directors. We assist with FDI compliance, Indian subsidiary incorporation, capital structuring, capitalization (cap) table setup, and FEMA regulations.",
+  },
+  {
+    question: "What does your corporate advisory services suite include?",
+    answer: "Our corporate advisory services suite covers business structuring and restructuring, corporate governance, risk management policies, director onboarding frameworks, and strategic board consulting, ensuring your entity remains investable and legally sound.",
+  },
+  {
+    question: "How does business advisory help in scaling venture-backed startups?",
+    answer: "Our advisory consultants act as strategic partners, helping startups model equity vesting schedules, draft shareholder agreements, manage transaction diligence audits, and prepare financial reports for upcoming investment rounds.",
+  },
+];
 
 export default async function CategoryHubPage({ params }: PageProps) {
   const { category } = await params;
@@ -58,11 +88,30 @@ export default async function CategoryHubPage({ params }: PageProps) {
     { label: pData.name },
   ];
 
+  const isAdvisory = category === "advisory-consulting";
+
+  // SEO Optimized Copy definitions specifically for the advisory-consulting category
+  const displayTitle = isAdvisory
+    ? "Business Advisory Services Chennai | Corporate Advisory Services"
+    : pData.name;
+
+  const displayDesc = isAdvisory
+    ? "At DSS Corp Advisory, we provide growth-oriented business advisory services in Chennai. Our expert consultants deliver high-impact corporate advisory services and startup consulting in India, helping entrepreneurs navigate legal structuring, regulatory risks, and corporate scaling."
+    : pData.directAnswer;
+
+  const displayGridTitle = isAdvisory
+    ? "Startup Consulting India & Core Advisory Focus"
+    : `Explore Services under ${pData.name}`;
+
+  const displayGridDesc = isAdvisory
+    ? "DSS Corp delivers comprehensive startup consulting in India alongside tailored corporate advisory services to ensure robust entity setup, capitalization structuring, and regulatory governance."
+    : "We organize our practice into high-intent flagship services (Tier 1 Money Pages) and regular compliance maintenance services (Tier 2).";
+
   return (
     <>
       <Navigation />
 
-      <main className="flex-1 bg-off-white pt-24 animate-fade-in">
+      <main className="flex-1 bg-off-white pt-24 animate-fade-in font-body">
         <Breadcrumb crumbs={crumbs} />
 
         {/* Hero Area */}
@@ -72,13 +121,13 @@ export default async function CategoryHubPage({ params }: PageProps) {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="max-w-4xl space-y-5">
               <span className="text-xs font-semibold text-cyan uppercase tracking-wider font-heading block">
-                Practice Category
+                Practice Desk
               </span>
               <h1 className="font-heading font-semibold text-3xl sm:text-4xl md:text-5xl text-card-white tracking-tight leading-tight">
-                {pData.name}
+                {displayTitle}
               </h1>
               <p className="font-body text-base sm:text-lg text-text-muted leading-relaxed border-l-2 border-cyan/40 pl-4 py-1">
-                {pData.directAnswer}
+                {displayDesc}
               </p>
               <div className="pt-2">
                 <PersonaBadge persona={pData.primaryPersona} dark />
@@ -88,14 +137,14 @@ export default async function CategoryHubPage({ params }: PageProps) {
         </section>
 
         {/* Services Directory Grid */}
-        <section className="py-20">
+        <section className="py-20 border-b border-border-hairline">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mb-12">
               <h2 className="font-heading font-semibold text-2xl text-navy">
-                Explore Services under {pData.name}
+                {displayGridTitle}
               </h2>
               <p className="font-body text-sm text-text-secondary mt-2">
-                We organize our practice into high-intent flagship services (Tier 1 Money Pages) and regular compliance maintenance services (Tier 2).
+                {displayGridDesc}
               </p>
             </div>
 
@@ -141,6 +190,70 @@ export default async function CategoryHubPage({ params }: PageProps) {
           </div>
         </section>
 
+        {/* Custom SEO Copywriting Section for advisory-consulting category */}
+        {isAdvisory && (
+          <>
+            <section className="py-20 bg-card-white border-b border-border-hairline">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                  
+                  {/* Left Side Copy */}
+                  <div className="lg:col-span-6 space-y-6">
+                    <span className="text-xs font-semibold text-cyan uppercase tracking-wider font-heading block">
+                      Compliance Strategy Desk
+                    </span>
+                    <h2 className="font-heading font-semibold text-3xl text-navy leading-tight">
+                      Proactive Business Advisory Services in Chennai
+                    </h2>
+                    <p className="font-body text-sm sm:text-base text-text-secondary leading-relaxed">
+                      At DSS Corp, we understand that launching and scaling an enterprise requires more than basic registration filings. Our **business advisory services in Chennai** offer a proactive partnership model where CA partners work with your board to align growth strategies with absolute regulatory compliance.
+                    </p>
+                    <p className="font-body text-sm sm:text-base text-text-secondary leading-relaxed">
+                      From structuring capital structures to designing corporate risk governance policies, our advisors ensure your business remains legally sound and ready for institutional investments.
+                    </p>
+                  </div>
+
+                  {/* Right Side Copy */}
+                  <div className="lg:col-span-6 space-y-6">
+                    <span className="text-xs font-semibold text-chartreuse uppercase tracking-wider font-heading block">
+                      Scale Operations Compliantly
+                    </span>
+                    <h2 className="font-heading font-semibold text-3xl text-navy leading-tight">
+                      Expert Startup Consulting in India
+                    </h2>
+                    <p className="font-body text-sm sm:text-base text-text-secondary leading-relaxed">
+                      Navigating the Indian regulatory ecosystem is complex for global founders. Our **startup consulting in India** streamlines FDI clearances, FEMA filings, tax residency setups, and capitalization (cap) table vesting schedules.
+                    </p>
+                    <p className="font-body text-sm sm:text-base text-text-secondary leading-relaxed">
+                      We act as your local corporate advisors in Chennai, bridging the gap between innovative strategy and statutory governance frameworks.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+            </section>
+
+            {/* Structured SEO FAQs Accordion */}
+            <section className="py-20 bg-off-white border-b border-border-hairline">
+              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-12">
+                  <span className="text-xs font-semibold text-cyan uppercase tracking-wider font-heading block">
+                    FAQ Desk
+                  </span>
+                  <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-navy mt-2">
+                    Frequently Asked Questions
+                  </h2>
+                  <p className="font-body text-sm text-text-secondary mt-2">
+                    Important strategic answers regarding corporate advisory and startup consulting services.
+                  </p>
+                </div>
+
+                <FAQAccordion faqs={advisoryFaqs} />
+              </div>
+            </section>
+          </>
+        )}
+
         {/* Cross Category Suggestions */}
         <section className="py-12 border-y border-border-hairline bg-off-white/40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
@@ -158,7 +271,6 @@ export default async function CategoryHubPage({ params }: PageProps) {
 
         {/* final scoping trigger */}
         <CTABand />
-
       </main>
 
       <Footer />

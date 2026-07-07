@@ -2,12 +2,12 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Clock, ArrowRight, ChevronRight } from "lucide-react";
-import { blogDb } from "@/lib/blog";
+import { getAllArticlesSorted, getArticlePath } from "@/lib/blog-utils";
 import PersonaBadge from "./PersonaBadge";
 
 export default function BlogPreview() {
   // Get the first 3 articles from the database
-  const latestArticles = Object.values(blogDb).slice(0, 3);
+  const latestArticles = getAllArticlesSorted().slice(0, 3);
 
   return (
     <section className="py-24 bg-card-white border-b border-border-hairline">
@@ -64,7 +64,7 @@ export default function BlogPreview() {
                   </div>
 
                   <h3 className="font-heading font-semibold text-base sm:text-lg text-navy group-hover:text-cyan transition-colors mb-3 line-clamp-2">
-                    <Link href={`/blog/${art.slug}`}>
+                    <Link href={getArticlePath(art)}>
                       {art.title}
                     </Link>
                   </h3>
@@ -83,7 +83,7 @@ export default function BlogPreview() {
                   </div>
 
                   <Link
-                    href={`/blog/${art.slug}`}
+                    href={getArticlePath(art)}
                     className="inline-flex items-center gap-1 text-xs font-body font-semibold text-navy group-hover:text-cyan transition-colors"
                   >
                     Read <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
