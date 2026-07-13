@@ -12,9 +12,14 @@ interface FAQItem {
 interface FAQAccordionProps {
   faqs: FAQItem[];
   enableSearch?: boolean;
+  questionHeading?: "h3" | "span";
 }
 
-export default function FAQAccordion({ faqs, enableSearch = false }: FAQAccordionProps) {
+export default function FAQAccordion({
+  faqs,
+  enableSearch = false,
+  questionHeading = "span",
+}: FAQAccordionProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -41,6 +46,8 @@ export default function FAQAccordion({ faqs, enableSearch = false }: FAQAccordio
   const toggleIndex = (idx: number) => {
     setOpenIndex(openIndex === idx ? null : idx);
   };
+
+  const QuestionTag = questionHeading;
 
   return (
     <>
@@ -79,7 +86,9 @@ export default function FAQAccordion({ faqs, enableSearch = false }: FAQAccordio
                   >
                     <span className="flex gap-2.5 items-start">
                       <HelpCircle className="w-5 h-5 text-cyan mt-0.5 flex-shrink-0" />
-                      <span>{faq.question}</span>
+                      <QuestionTag className="font-heading font-semibold text-base text-inherit m-0">
+                        {faq.question}
+                      </QuestionTag>
                     </span>
                     <ChevronDown
                       className={`w-5 h-5 text-text-muted transition-transform duration-200 mt-0.5 flex-shrink-0 ${

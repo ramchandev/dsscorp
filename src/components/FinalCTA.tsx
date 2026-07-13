@@ -13,10 +13,13 @@ export default function FinalCTA() {
           Get Started
         </span>
         <h2 className="font-heading font-semibold text-3xl sm:text-4xl text-card-white tracking-tight max-w-2xl mx-auto leading-tight">
-          Secure financial clarity for your business and family.
+          Get clear on tax and compliance.
         </h2>
         <p className="font-body text-sm text-text-muted mt-4 max-w-lg mx-auto leading-relaxed">
-          Book a direct, obligation-free preliminary scoping call with our partners. We&apos;ll map your compliance needs in under 20 minutes.
+          Book a free 20-minute call with our partners.
+        </p>
+        <p className="font-body text-sm text-text-muted mt-1 max-w-lg mx-auto leading-relaxed">
+          No pressure. Just a clear map of what you need next.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10 w-full sm:w-auto">

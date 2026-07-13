@@ -58,14 +58,33 @@ export default function Hero({ onSelectPersona }: HeroProps) {
               Financial clarity for founders who can&apos;t afford mistakes.
             </motion.h1>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.2, ease: "easeOut" }}
-              className="font-body text-[16px] md:text-[17px] leading-relaxed text-text-muted mt-6 max-w-xl"
+              className="mt-6 max-w-xl space-y-4"
             >
-              DSS Corp provides elite strategic advisory, taxation, and compliance solutions. We handle the complexity so you can focus on building what matters.
-            </motion.p>
+              <p className="font-body text-[16px] md:text-[17px] leading-relaxed text-text-muted">
+                We help with tax, compliance, and business advice.
+              </p>
+              <p className="font-body text-[16px] md:text-[17px] leading-relaxed text-text-muted">
+                You focus on growth. We handle the rules.
+              </p>
+              <ul className="font-body text-[15px] leading-relaxed text-text-muted space-y-2 list-none">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-chartreuse mt-0.5 flex-shrink-0" />
+                  <span>Tax planning and GST filings</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-chartreuse mt-0.5 flex-shrink-0" />
+                  <span>Company setup and compliance</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-chartreuse mt-0.5 flex-shrink-0" />
+                  <span>NRI, FEMA, and wealth planning</span>
+                </li>
+              </ul>
+            </motion.div>
 
             {/* CTAs */}
             <motion.div
@@ -141,7 +160,7 @@ export default function Hero({ onSelectPersona }: HeroProps) {
             >
               <CheckCircle2 className="w-4 h-4 text-chartreuse flex-shrink-0" />
               <p className="text-[11px] sm:text-xs text-text-muted leading-relaxed font-body">
-                <span className="font-semibold text-card-white">Elite Credentials:</span> Led by senior Chartered Accountants with 20+ years of corporate & tax advisory expertise.
+                <span className="font-semibold text-card-white">Led by senior CAs</span> with 20+ years in tax and business advice.
               </p>
             </motion.div>
           </div>

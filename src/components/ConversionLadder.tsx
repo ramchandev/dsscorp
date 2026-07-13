@@ -34,18 +34,28 @@ export default function ConversionLadder({
       id: "startup",
       label: "Startup Founder",
       icon: <Rocket className="w-5 h-5 text-cyan" />,
-      situation: "Navigating early-stage compliance, structural decisions, and capital scaling.",
+      situation: "You need clean setup, tax IDs, and room to raise capital.",
       tasks: {
-        title: "Mandatory Setup Tasks",
-        desc: "File business commencement declarations (Form INC-20A), register local PAN/TAN, appoint ICAI auditor within 30 days, and draft DPIIT share agreements."
+        title: "What you must do",
+        items: [
+          "File Form INC-20A after you start business",
+          "Get PAN and TAN",
+          "Appoint an auditor within 30 days",
+          "Draft share agreements for DPIIT",
+        ],
       },
       partner: {
-        title: "How DSS Solves It",
-        desc: "Filing statutory declarations, registering tax accounts in 24 hours, managing corporate filings, and aligning MCA compliance logs."
+        title: "How DSS helps",
+        items: [
+          "File startup declarations on time",
+          "Register tax accounts fast",
+          "Keep MCA filings in order",
+          "Guide share and structure choices",
+        ],
       },
       hot: {
-        title: "Book 20-Min Founder Call",
-        desc: "Confidential guidance call to map your business milestones and structure.",
+        title: "Book a 20-min founder call",
+        desc: "A short call to map your next steps.",
         label: "Schedule Consultation",
       },
     },
@@ -53,18 +63,28 @@ export default function ConversionLadder({
       id: "business",
       label: "MSME Owner",
       icon: <Building2 className="w-5 h-5 text-chartreuse" />,
-      situation: "Optimizing working capital, tax structures, and staying ahead of filing dates.",
+      situation: "You want better cash flow, clean tax setup, and filings on time.",
       tasks: {
-        title: "Mandatory Filing Tasks",
-        desc: "Reconcile dynamic purchase registers against GSTR-2B log files, submit monthly GSTR-3B filings, and resolve pending tax department notices."
+        title: "What you must do",
+        items: [
+          "Match purchases with GSTR-2B",
+          "File GSTR-3B each month",
+          "Clear pending tax notices",
+          "Track working capital and GST credit",
+        ],
       },
       partner: {
-        title: "How DSS Solves It",
-        desc: "Reconciling Input Tax Credits (ITC) to optimize cash outflow, executing recurring monthly submissions, and managing dispute resolutions."
+        title: "How DSS helps",
+        items: [
+          "Reconcile input tax credit",
+          "Handle monthly GST filings",
+          "Respond to tax notices",
+          "Find ways to free up cash",
+        ],
       },
       hot: {
-        title: "Book Compliance Audit",
-        desc: "Full overview of your current filings to identify cost saving opportunities.",
+        title: "Book a compliance review",
+        desc: "A full check of your filings and cost leaks.",
         label: "Book Audit Review",
       },
     },
@@ -72,18 +92,28 @@ export default function ConversionLadder({
       id: "legacy",
       label: "HNI & Family Office",
       icon: <ShieldCheck className="w-5 h-5 text-cyan" />,
-      situation: "Preserving intergenerational wealth, private trusts, and succession planning.",
+      situation: "You want to protect family wealth and plan who inherits what.",
       tasks: {
-        title: "Mandatory Legacy Tasks",
-        desc: "Structure private trusts, draft legally enforceable Wills, evaluate estate valuation exposure, and register family corporate holdings."
+        title: "What you must do",
+        items: [
+          "Set up private trusts where needed",
+          "Draft a clear Will",
+          "Review estate and tax exposure",
+          "Register family company holdings",
+        ],
       },
       partner: {
-        title: "How DSS Solves It",
-        desc: "Drafting trust deeds, managing intergenerational asset allocations, obtaining probate clearances, and legal succession protection."
+        title: "How DSS helps",
+        items: [
+          "Draft trust deeds",
+          "Plan asset transfers across generations",
+          "Support probate and clearances",
+          "Protect succession with legal structure",
+        ],
       },
       hot: {
-        title: "Confidential Wealth Review",
-        desc: "Private 1-on-1 strategic session with our senior estate advisory partner.",
+        title: "Private wealth review",
+        desc: "A one-on-one session with our estate partner.",
         label: "Request Review",
       },
     },
@@ -91,18 +121,28 @@ export default function ConversionLadder({
       id: "nri",
       label: "NRI Client",
       icon: <Globe2 className="w-5 h-5 text-chartreuse" />,
-      situation: "Managing FEMA guidelines, properties, and dynamic repatriation pathways.",
+      situation: "You need clear FEMA rules for property, tax, and sending money abroad.",
       tasks: {
-        title: "Mandatory FEMA Tasks",
-        desc: "Secure CA Form 15CA/15CB tax certifications, check annual USD 1M LRS ceilings, and manage property sales remittance rules."
+        title: "What you must do",
+        items: [
+          "Get Form 15CA / 15CB certificates",
+          "Stay within the USD 1M yearly limit",
+          "Follow property sale remittance rules",
+          "Keep FEMA paperwork bank-ready",
+        ],
       },
       partner: {
-        title: "How DSS Solves It",
-        desc: "Securing certified Form 15CA/15CB clearings, auditing property transactions, and managing FEMA repatriation filings with AD banks."
+        title: "How DSS helps",
+        items: [
+          "Issue Form 15CA / 15CB clearances",
+          "Review property sale tax",
+          "Guide FEMA filings with AD banks",
+          "Plan safe remittance steps",
+        ],
       },
       hot: {
-        title: "Book NRI Consultation",
-        desc: "Direct advisory session with our cross-border tax compliance desk.",
+        title: "Book an NRI consultation",
+        desc: "Talk with our cross-border tax desk.",
         label: "Book NRI Call",
       },
     },
@@ -117,13 +157,16 @@ export default function ConversionLadder({
         
         <div className="max-w-3xl mb-16">
           <span className="text-xs font-semibold text-cyan uppercase tracking-wider font-heading block mb-2">
-            Structured Scoping
+            Find Your Path
           </span>
           <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-card-white leading-tight">
-            Choose Your Scoping Track
+            Pick your profile
           </h2>
           <p className="font-body text-xs sm:text-sm text-text-muted mt-3 leading-relaxed">
-            Select your profile to check immediate regulatory tasks and discover how DSS partners with your desk to execute compliance.
+            See what you need to do next.
+          </p>
+          <p className="font-body text-xs sm:text-sm text-text-muted mt-1 leading-relaxed">
+            Then see how DSS can help.
           </p>
         </div>
 
@@ -161,14 +204,19 @@ export default function ConversionLadder({
                 <div className="col-span-3 border-l border-navy-secondary pl-6 flex flex-col justify-between h-full min-h-[140px]">
                   <div>
                     <span className="text-[10px] font-semibold text-text-muted tracking-wider uppercase block mb-1">
-                      Required Tasks
+                      Your checklist
                     </span>
                     <h4 className="font-heading font-semibold text-card-white text-sm leading-snug">
                       {persona.tasks.title}
                     </h4>
-                    <p className="text-xs text-text-muted leading-relaxed mt-2.5 font-body">
-                      {persona.tasks.desc}
-                    </p>
+                    <ul className="mt-2.5 space-y-1.5 list-none">
+                      {persona.tasks.items.map((item) => (
+                        <li key={item} className="text-xs text-text-muted leading-relaxed font-body flex gap-1.5">
+                          <span className="text-cyan flex-shrink-0">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
 
@@ -181,9 +229,14 @@ export default function ConversionLadder({
                     <h4 className="font-heading font-semibold text-card-white text-sm leading-snug">
                       {persona.partner.title}
                     </h4>
-                    <p className="text-xs text-text-muted leading-relaxed mt-2.5 font-body">
-                      {persona.partner.desc}
-                    </p>
+                    <ul className="mt-2.5 space-y-1.5 list-none">
+                      {persona.partner.items.map((item) => (
+                        <li key={item} className="text-xs text-text-muted leading-relaxed font-body flex gap-1.5">
+                          <span className="text-chartreuse flex-shrink-0">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
 
@@ -246,16 +299,30 @@ export default function ConversionLadder({
                     
                     {/* Tasks */}
                     <div className="bg-navy-secondary/20 p-4 rounded border border-navy-secondary">
-                      <span className="text-[9px] font-semibold text-text-muted tracking-wider uppercase block">Required Tasks</span>
+                      <span className="text-[9px] font-semibold text-text-muted tracking-wider uppercase block">Your checklist</span>
                       <h4 className="font-heading font-semibold text-card-white text-sm mt-1">{persona.tasks.title}</h4>
-                      <p className="text-xs text-text-muted leading-relaxed mt-2 font-body">{persona.tasks.desc}</p>
+                      <ul className="mt-2 space-y-1.5 list-none">
+                        {persona.tasks.items.map((item) => (
+                          <li key={item} className="text-xs text-text-muted leading-relaxed font-body flex gap-1.5">
+                            <span className="text-cyan flex-shrink-0">•</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
                     {/* Partner */}
                     <div className="bg-navy-secondary/20 p-4 rounded border border-navy-secondary">
                       <span className="text-[9px] font-semibold text-cyan tracking-wider uppercase block">DSS Solution</span>
                       <h4 className="font-heading font-semibold text-card-white text-sm mt-1">{persona.partner.title}</h4>
-                      <p className="text-xs text-text-muted leading-relaxed mt-2 font-body">{persona.partner.desc}</p>
+                      <ul className="mt-2 space-y-1.5 list-none">
+                        {persona.partner.items.map((item) => (
+                          <li key={item} className="text-xs text-text-muted leading-relaxed font-body flex gap-1.5">
+                            <span className="text-chartreuse flex-shrink-0">•</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
 
                     {/* Hot CTA */}

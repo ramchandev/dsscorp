@@ -49,10 +49,10 @@ export default function FAQHubPage() {
                 FAQ Center
               </span>
               <h1 className="font-heading font-semibold text-3xl sm:text-4xl md:text-5xl text-navy tracking-tight leading-tight">
-                Consolidated FAQ Hub
+                Frequently asked questions
               </h1>
               <p className="font-body text-base text-text-secondary leading-relaxed border-l-2 border-cyan/40 pl-4 py-1">
-                A single canonical resource aggregating the top inquiries on corporate taxation, accounting standard conversions, Indian subsidiary setup, and estate succession trusts.
+                Clear answers on tax, accounting, India company setup, and family trusts.
               </p>
             </div>
           </div>
@@ -91,12 +91,14 @@ export default function FAQHubPage() {
               {/* Accordion List Panel */}
               <div className="lg:col-span-9 space-y-6">
                 <div className="max-w-3xl mb-8">
-                  <h3 className="font-heading font-semibold text-xl text-navy">
-                    Showing {displayFaqs.length} Frequently Answered Questions
-                  </h3>
+                  <h2 className="font-heading font-semibold text-xl text-navy">
+                    {activeCategory === "All"
+                      ? `All questions (${displayFaqs.length})`
+                      : `${activeCategory} (${displayFaqs.length})`}
+                  </h2>
                 </div>
 
-                <FAQAccordion faqs={displayFaqs} enableSearch={true} />
+                <FAQAccordion faqs={displayFaqs} enableSearch={true} questionHeading="h3" />
               </div>
 
             </div>

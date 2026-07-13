@@ -19,10 +19,13 @@ export default function BlogPreview() {
               Latest Insights
             </span>
             <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-navy">
-              Updates from our Partners
+              From our partners
             </h2>
             <p className="font-body text-text-secondary mt-3">
-              Stay updated with compliance changes, GST provisions, startup funding frameworks, and FEMA guidelines verified by our Chartered Accountant desks.
+              Short guides on GST, startups, and FEMA.
+            </p>
+            <p className="font-body text-text-secondary mt-1">
+              Written and checked by our CA team.
             </p>
           </div>
 

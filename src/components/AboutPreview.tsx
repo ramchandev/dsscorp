@@ -1,7 +1,14 @@
 import React from "react";
 import Link from "next/link";
+import { CheckCircle2 } from "lucide-react";
 
 export default function AboutPreview() {
+  const focusAreas = [
+    "Startup founders and growing MSMEs",
+    "GST, income tax, and company audits",
+    "NRI families and FEMA remittances",
+  ];
+
   return (
     <section id="about" className="py-24 bg-off-white border-b border-border-hairline">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,20 +21,34 @@ export default function AboutPreview() {
               About the Firm
             </span>
             <h2 className="font-heading font-semibold text-3xl sm:text-4xl text-navy leading-tight">
-              Dynamic solutions, built on absolute compliance.
+              Clear advice. Strong compliance.
             </h2>
             <p className="font-body text-base text-text-secondary leading-relaxed border-l-2 border-cyan/40 pl-4 py-1">
-               DSS Corp is a premium Chennai-based financial consulting and CA advisory. We represent a progressive shift from rigid, typical compliance filings to growth-aligned B2B partnerships.
+              DSS Corp is a Chennai CA firm.
+            </p>
+            <p className="font-body text-base text-text-secondary leading-relaxed pl-4">
+              We go beyond basic filings. We help you grow with less risk.
             </p>
           </div>
 
-          {/* Right Text Block (Replaces the Partner Bios) */}
+          {/* Right Text Block */}
           <div className="lg:col-span-7 space-y-6">
+            <h3 className="font-heading font-semibold text-lg text-navy">
+              Who we work with
+            </h3>
+            <ul className="space-y-3 list-none">
+              {focusAreas.map((item) => (
+                <li key={item} className="flex items-start gap-2.5 font-body text-sm sm:text-base text-text-secondary">
+                  <CheckCircle2 className="w-4 h-4 text-cyan mt-1 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
             <p className="font-body text-sm sm:text-base text-text-secondary leading-relaxed">
-              We guide high-growth startup founders, domestic MSMEs, and global NRI families through the complexities of direct taxation, GST audits, FEMA capital repatriation, and statutory company audits. 
+              We mix deep tax knowledge with practical plans.
             </p>
             <p className="font-body text-sm sm:text-base text-text-secondary leading-relaxed">
-              Our multidisciplinary approach combines deep regulatory insights with proactive strategy to deliver compliance clarity where it matters most, making your enterprise audit-ready and scalable.
+              The goal is simple: keep you audit-ready and ready to scale.
             </p>
             <div className="pt-4">
               <Link

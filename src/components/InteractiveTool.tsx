@@ -125,6 +125,17 @@ export default function InteractiveTool() {
   return (
     <section className="py-24 bg-card-white border-b border-border-hairline">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mb-10">
+          <span className="text-xs font-semibold text-cyan uppercase tracking-wider font-heading block mb-2">
+            Interactive Tools
+          </span>
+          <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-navy">
+            Quick calculators
+          </h2>
+          <p className="font-body text-text-secondary mt-3">
+            Estimate GST, tax, or business value in minutes.
+          </p>
+        </div>
         <div className="bg-off-white border border-border-hairline rounded-xl overflow-hidden shadow-xs grid grid-cols-1 lg:grid-cols-12">
           
           {/* Left Side: Interactive Tool Inputs/Outputs */}
@@ -399,14 +410,17 @@ export default function InteractiveTool() {
 
           {/* Right Side: Copy Block & CTA */}
           <div className="lg:col-span-5 p-8 sm:p-10 flex flex-col justify-center">
-            <span className="text-xs font-semibold text-cyan uppercase tracking-wider font-heading mb-2 animate-pulse">
-              Interactive Tools
+            <span className="text-xs font-semibold text-cyan uppercase tracking-wider font-heading mb-2">
+              {toolMetadata[activeTool].tag}
             </span>
             <h3 className="font-heading font-semibold text-2xl text-navy leading-tight">
               {toolMetadata[activeTool].title}
             </h3>
             <p className="font-body text-xs sm:text-sm text-text-secondary leading-relaxed mt-4">
-              Get an instant projection based on current regulatory provisions. Our tools help founders and business desks map operations before requesting partner reviews.
+              Get a quick estimate using current rules.
+            </p>
+            <p className="font-body text-xs sm:text-sm text-text-secondary leading-relaxed mt-2">
+              Use it to plan. Then talk to a partner if you need a formal review.
             </p>
 
             <div className="mt-8 space-y-4">

@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import {
-  TrendingUp,
   FileCheck,
   Percent,
   ShieldCheck,
@@ -16,7 +15,7 @@ export default function ServicePillars() {
     {
       icon: <Briefcase className="w-6 h-6 text-cyan" />,
       name: "Advisory & Consulting",
-      desc: "Strategic business setups, corporate compliance, and structural planning.",
+      desc: "Help with company setup, structure, and growth plans.",
       href: "/services/advisory-consulting",
       sublinks: [
         { label: "Startup Advisory & Mentorship", href: "/services/advisory-consulting/startup-advisory-mentorship" },
@@ -26,7 +25,7 @@ export default function ServicePillars() {
     {
       icon: <FileCheck className="w-6 h-6 text-steel" />,
       name: "Accounting & Compliance",
-      desc: "End-to-end bookkeeping support, statutory reporting, and company secretarial desk.",
+      desc: "Books, reports, and company filings — done on time.",
       href: "/services/accounting-compliance",
       sublinks: [
         { label: "Bookkeeping & Accounting", href: "/services/accounting-compliance/bookkeeping-accounting" },
@@ -36,7 +35,7 @@ export default function ServicePillars() {
     {
       icon: <Percent className="w-6 h-6 text-chartreuse" />,
       name: "Taxation",
-      desc: "Corporate tax declarations, indirect GST filings, and litigation representation.",
+      desc: "GST, income tax, and support if you face a dispute.",
       href: "/services/taxation",
       sublinks: [
         { label: "GST & Indirect Tax Advisory", href: "/services/taxation/gst-indirect-tax" },
@@ -46,7 +45,7 @@ export default function ServicePillars() {
     {
       icon: <ShieldCheck className="w-6 h-6 text-navy" />,
       name: "Audit & Assurance",
-      desc: "Statutory audits, tax & GST audits, internal systems assessment.",
+      desc: "Company audits, tax audits, and process checks.",
       href: "/services/audit-assurance",
       sublinks: [
         { label: "Statutory Company Audits", href: "/services/audit-assurance/statutory-audits" },
@@ -56,7 +55,7 @@ export default function ServicePillars() {
     {
       icon: <Coins className="w-6 h-6 text-cyan" />,
       name: "Corporate Finance",
-      desc: "Business valuation reports, capital structuring, working capital syndication.",
+      desc: "Valuation, fundraising help, and capital planning.",
       href: "/services/corporate-finance",
       sublinks: [
         { label: "Venture Valuation Reports", href: "/services/corporate-finance/business-valuation" },
@@ -66,7 +65,7 @@ export default function ServicePillars() {
     {
       icon: <Globe className="w-6 h-6 text-chartreuse" />,
       name: "Global & Private Wealth",
-      desc: "FEMA compliance clearance, offshore trust structuring, NRI tax planning.",
+      desc: "NRI tax, FEMA rules, and family wealth planning.",
       href: "/services/global-private-wealth",
       sublinks: [
         { label: "NRI Tax & Compliance", href: "/services/global-private-wealth/nri-tax-planning-compliance" },
@@ -82,13 +81,16 @@ export default function ServicePillars() {
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
           <span className="text-xs font-semibold text-cyan uppercase tracking-wider font-heading block mb-2">
-            Practice Portfolio
+            Our Services
           </span>
           <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-navy">
-            Expert Advisory Desks
+            Six desks. Clear support.
           </h2>
           <p className="font-body text-text-secondary mt-3">
-            Our Chartered Accountants manage compliance structures across six dedicated practice desks, aligned with the dynamic demands of founders and private families.
+            Our Chartered Accountants work across six practice areas.
+          </p>
+          <p className="font-body text-text-secondary mt-2">
+            Built for founders, MSMEs, and families who need clear answers.
           </p>
         </div>
 

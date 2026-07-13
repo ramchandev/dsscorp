@@ -35,10 +35,10 @@ export default function Testimonials() {
             Client Voices
           </span>
           <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-navy">
-            Trusted by Builders & Families
+            Trusted by founders and families
           </h2>
           <p className="font-body text-text-secondary mt-3 max-w-xl mx-auto">
-            Read direct feedback from corporate leaders, entrepreneurs, and NRI families who rely on our advisory.
+            Feedback from business owners and NRI families we support.
           </p>
         </div>
 

@@ -10,34 +10,34 @@ export default function CaseStudies() {
     {
       client: "Chennai-based D2C Fashion Brand",
       sector: "Startup & E-commerce",
-      problem: "Inefficient supply chain tax planning resulting in blocked Input Tax Credit (ITC) and working capital crunch.",
-      outcome: "Restructured contract manufacturer agreements and automated ITC reconciliation matching.",
-      metric: "~40% Reduction",
-      metricLabel: "In Compliance Turnaround Time",
+      problem: "Poor tax planning blocked GST credit and squeezed cash.",
+      outcome: "We fixed supplier contracts and automated GST credit matching.",
+      metric: "~40% Faster",
+      metricLabel: "Compliance turnaround",
     },
     {
       client: "Multi-State Automotive Components MSME",
       sector: "Manufacturing & Corporate",
-      problem: "Complex transfer pricing between regional manufacturing hubs and sales depots triggering tax audits.",
-      outcome: "Developed robust transfer pricing study and negotiated Advance Pricing Agreement (APA) with tax desk.",
+      problem: "Transfer pricing across plants and depots led to tax audits.",
+      outcome: "We prepared a transfer pricing study and secured an APA with the tax desk.",
       metric: "₹1.8 Cr",
-      metricLabel: "Tax Liability Risk Cleared",
+      metricLabel: "Tax risk cleared",
     },
     {
       client: "Cross-Border Tech Executive (US/India NRI)",
       sector: "NRI Taxation & FEMA",
-      problem: "Navigating double taxation on global stock options and complex property sale repatriation limits.",
-      outcome: "Obtained Form 15CB clearances and structured estate repatriation via custom capital accounts.",
+      problem: "Stock options and property sale remittance rules were hard to navigate.",
+      outcome: "We got Form 15CB clearances and set up a clean remittance path.",
       metric: "100% Compliant",
-      metricLabel: "FEMA Capital Account Transition",
+      metricLabel: "FEMA remittance transition",
     },
     {
       client: "Single-Family Office (Manufacturing Legacy)",
       sector: "HNI Wealth & Legacy",
-      problem: "Lack of clean family governance and succession planning, leaving real estate assets exposed to probate delays.",
-      outcome: "Formulated custom private trust scheme, transferring asset ownership with robust tax insulation.",
-      metric: "0% Probate",
-      metricLabel: "Asset Exposure Risk Eliminated",
+      problem: "No succession plan left property open to probate delays.",
+      outcome: "We set up a private trust and moved assets with clear tax cover.",
+      metric: "0% Probate Risk",
+      metricLabel: "Asset exposure removed",
     },
   ];
 
@@ -59,10 +59,13 @@ export default function CaseStudies() {
               Proven Results
             </span>
             <h2 className="font-heading font-semibold text-2xl sm:text-3xl text-navy">
-              Advisory in Action
+              Results that matter
             </h2>
             <p className="font-body text-text-secondary mt-3">
-              Anonymized studies detailing how our corporate tax, structuring, and compliance interventions unlock capital and eliminate compliance risks.
+              Real client outcomes. Names kept private.
+            </p>
+            <p className="font-body text-text-secondary mt-1">
+              See how tax and compliance work frees up capital and lowers risk.
             </p>
           </div>
 
@@ -111,7 +114,7 @@ export default function CaseStudies() {
                     <div className="space-y-4">
                       <div>
                         <span className="text-[10px] font-semibold text-text-muted uppercase tracking-wider block font-heading">
-                          The Challenge
+                          The challenge
                         </span>
                         <p className="text-sm text-text-secondary leading-relaxed mt-1 font-body">
                           {c.problem}
@@ -120,7 +123,7 @@ export default function CaseStudies() {
 
                       <div>
                         <span className="text-[10px] font-semibold text-text-muted uppercase tracking-wider block font-heading">
-                          The Strategic Intervention
+                          What we did
                         </span>
                         <p className="text-sm text-navy leading-relaxed mt-1 font-body font-medium">
                           {c.outcome}
