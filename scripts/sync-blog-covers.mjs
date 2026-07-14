@@ -17,6 +17,8 @@ const legacyMap = {
   "blog-gst-registration.jpg": "gst-registration-process-india-2026.jpg",
   "blog-nri-income-tax-return.jpg": "how-nris-file-income-tax-return-india.jpg",
   "blog-fema-repatriation-rules.jpg": "fema-rules-nri-repatriation.jpg",
+  "blog-roc-compliance.jpg": "roc-compliance-checklist-private-companies-india.jpg",
+  "blog-indian-subsidiary.jpg": "set-up-indian-subsidiary-foreign-company.jpg",
 };
 
 for (const [legacyName, coverName] of Object.entries(legacyMap)) {

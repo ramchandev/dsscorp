@@ -14,7 +14,13 @@ export interface InsightArticle {
     | "corporate-finance"
     | "global-private-wealth";
   categoryName: string;
-  author: { name: string; credential: string };
+  author: {
+    name: string;
+    credential: string;
+    image: string;
+    href: string;
+    imagePosition?: string;
+  };
   persona: "startup" | "msme" | "hni" | "nri";
   directAnswer: string;
   bullets?: string[];

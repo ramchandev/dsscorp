@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Clock, ArrowRight, ChevronRight } from "lucide-react";
 import { getAllArticlesSorted, getArticlePath } from "@/lib/blog-utils";
 import PersonaBadge from "./PersonaBadge";
+import BlogAuthorBadge from "./BlogAuthorBadge";
 
 export default function BlogPreview() {
   // Get the first 3 articles from the database
@@ -66,11 +67,15 @@ export default function BlogPreview() {
                     <PersonaBadge persona={art.persona} />
                   </div>
 
-                  <h3 className="font-heading font-semibold text-base sm:text-lg text-navy group-hover:text-cyan transition-colors mb-3 line-clamp-2">
+                  <h3 className="font-heading font-semibold text-base sm:text-lg text-navy group-hover:text-cyan transition-colors mb-2 line-clamp-2">
                     <Link href={getArticlePath(art)}>
                       {art.title}
                     </Link>
                   </h3>
+
+                  <div className="mb-3">
+                    <BlogAuthorBadge author={art.author} />
+                  </div>
 
                   <p className="font-body text-xs sm:text-sm text-text-secondary leading-relaxed mb-6 line-clamp-3">
                     {art.excerpt}

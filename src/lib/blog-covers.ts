@@ -1,5 +1,5 @@
 /** Bump when blog cover artwork is regenerated, then run `npm run sync:blog-covers`. */
-export const BLOG_COVER_VERSION = "3";
+export const BLOG_COVER_VERSION = "5";
 
 export function getBlogCoverImage(slug: string): string {
   return `/blog/covers/${slug}.jpg`;
@@ -17,6 +17,8 @@ export const LEGACY_BLOG_IMAGE_MAP: Record<string, string> = {
   "blog-gst-registration.jpg": "gst-registration-process-india-2026",
   "blog-nri-income-tax-return.jpg": "how-nris-file-income-tax-return-india",
   "blog-fema-repatriation-rules.jpg": "fema-rules-nri-repatriation",
+  "blog-roc-compliance.jpg": "roc-compliance-checklist-private-companies-india",
+  "blog-indian-subsidiary.jpg": "set-up-indian-subsidiary-foreign-company",
 };
 
 export function getLegacyBlogImage(filename: string): string {

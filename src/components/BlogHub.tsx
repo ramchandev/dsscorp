@@ -12,6 +12,7 @@ import {
   getBlogCategoryOptions,
 } from "@/lib/blog-utils";
 import PersonaBadge from "@/components/PersonaBadge";
+import BlogAuthorBadge from "@/components/BlogAuthorBadge";
 
 type BlogHubProps = {
   articles: InsightArticle[];
@@ -175,9 +176,9 @@ export default function BlogHub({
                         <Link href={getArticlePath(article)}>{article.title}</Link>
                       </h2>
 
-                      <p className="font-body text-[11px] text-text-muted mb-3">
-                        By {article.author.name}
-                      </p>
+                      <div className="mb-3">
+                        <BlogAuthorBadge author={article.author} />
+                      </div>
 
                       <p className="font-body text-xs sm:text-sm text-text-secondary leading-relaxed mb-6 line-clamp-3">
                         {article.excerpt}

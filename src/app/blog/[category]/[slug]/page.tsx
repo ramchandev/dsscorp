@@ -2,11 +2,12 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Clock, Calendar, ShieldCheck, User, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Clock, Calendar, ShieldCheck, ArrowRight, CheckCircle2 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PersonaBadge from "@/components/PersonaBadge";
+import BlogAuthorBadge from "@/components/BlogAuthorBadge";
 import FAQAccordion from "@/components/FAQAccordion";
 import { blogDb } from "@/lib/blog";
 import { getArticleByCategoryAndSlug, getArticlePath } from "@/lib/blog-utils";
@@ -70,6 +71,8 @@ export default async function InsightArticlePage({ params }: PageProps) {
       "@type": "Person",
       name: article.author.name,
       jobTitle: article.author.credential,
+      url: absoluteUrl(article.author.href),
+      image: absoluteUrl(article.author.image),
       worksFor: {
         "@type": "AccountingService",
         name: "DSS Corp Advisory",
@@ -148,13 +151,11 @@ export default async function InsightArticlePage({ params }: PageProps) {
                   )}
 
                   <div className="flex flex-wrap items-center gap-4 text-xs font-body text-text-secondary pt-2 border-b border-border-hairline/60 pb-4">
-                    <div className="flex items-center gap-1.5 font-semibold text-navy">
-                      <User className="w-4 h-4 text-cyan" />
-                      <span>{article.author.name}</span>
-                      <span className="text-[10px] text-text-muted font-normal">
-                        ({article.author.credential})
-                      </span>
-                    </div>
+                    <BlogAuthorBadge
+                      author={article.author}
+                      size="md"
+                      showCredential
+                    />
                     <div className="flex items-center gap-1.5 text-text-muted">
                       <Calendar className="w-3.5 h-3.5" />
                       <span>Published {article.date}</span>

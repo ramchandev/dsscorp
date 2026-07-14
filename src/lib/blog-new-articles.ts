@@ -239,4 +239,180 @@ export const newBlogArticles: Record<string, InsightArticle> = {
     },
     image: getBlogCoverImage("fema-rules-nri-repatriation"),
   },
+  "roc-compliance-checklist-private-companies-india": {
+    slug: "roc-compliance-checklist-private-companies-india",
+    title: "ROC Compliance Checklist for Private Companies in India",
+    subhead:
+      "Annual filings, event-based forms, late fees, and common mistakes for private limited companies.",
+    excerpt:
+      "A practical ROC compliance checklist for private companies in India — AOC-4, MGT-7, DIR-3 KYC, DPT-3, penalties, and who signs what.",
+    date: "July 14, 2026",
+    publishedAt: "2026-07-14",
+    readTime: "9 Min Read",
+    category: "accounting-compliance",
+    categoryName: "Accounting & Compliance",
+    author: BLOG_AUTHORS.madhan,
+    persona: "msme",
+    directAnswer:
+      "For FY 2025-26, a private limited company must file core annual ROC forms after the AGM — especially AOC-4 (financial statements), MGT-7 or MGT-7A (annual return), ADT-1 (auditor intimation), DIR-3 KYC for DIN holders, and usually DPT-3 even with nil deposits. Missed filings attract ₹100 per day per form with no maximum cap, plus higher penalties that can lead to director disqualification or company strike-off.",
+    bullets: [
+      "AOC-4: within 30 days of AGM (effectively by ~30 October for a 31 March year-end).",
+      "MGT-7 / MGT-7A: within 60 days of AGM (effectively by ~29 November).",
+      "DIR-3 KYC: 30 September each year for DIN holders as of 31 March.",
+      "ADT-1: within 15 days of AGM.",
+      "DPT-3: annual deposit return — often required even when deposits are nil.",
+    ],
+    sections: [
+      {
+        heading: "Why ROC compliance is non-negotiable",
+        body: "ROC compliance is the set of filings a company must make with the Ministry of Corporate Affairs under the Companies Act. For a private limited company, it is not optional paperwork — it is the baseline that keeps your company in good standing, your DIN active, and your directors eligible to continue. MCA dates and fees for FY 2025-26 can change by notification, so always reconfirm against the latest portal rules before you file.",
+      },
+      {
+        heading: "Core annual ROC filings for FY 2025-26",
+        body: "For a company with a 31 March year-end, the AGM must generally be held within six months of year-end — by 30 September. AOC-4 (financial statements) is due within 30 days of the AGM, so about 30 October. MGT-7 (or MGT-7A for OPCs and small companies) is due within 60 days of the AGM, so about 29 November. ADT-1 for auditor appointment or reappointment must be filed within 15 days of the AGM. DIR-3 KYC is due by 30 September for every person who held a DIN as of 31 March that year. DPT-3 is the annual return of deposits and, in most cases, a nil filing is still required even if the company has no deposits. MSME-1 is a half-yearly filing where payments to micro or small enterprises remain outstanding beyond 45 days.",
+      },
+      {
+        heading: "Event-based filings you cannot put on a calendar alone",
+        body: "Some ROC forms are trigger-based. Change in directors needs DIR-12. Fresh share allotment needs PAS-3. Creation, modification, or satisfaction of a charge needs CHG-1 or CHG-4. A change of registered office needs INC-22. Certain board and shareholder resolutions also need MGT-14. These deadlines start when the event happens, so a filing calendar alone will not catch them.",
+      },
+      {
+        heading: "Penalties that escalate quickly",
+        body: "Late AOC-4 and MGT-7 attract ₹100 per day per form with no maximum cap. A three-year delay on one form alone can run into six figures in rupees before any other penalty. Beyond daily fees, Section 137(3) and Section 92(5) of the Companies Act allow higher penalties that can reach into lakhs. Sustained non-filing can lead to director disqualification and company strike-off. Missed DIR-3 KYC deactivates the DIN and usually needs a ₹5,000 fee to reactivate. DPT-3 non-filing can attract penalties of up to ₹10 crore or twice the deposit amount, whichever is lower — severe relative to how often this form is overlooked.",
+      },
+      {
+        heading: "Who signs what",
+        body: "AOC-4 needs a director's Class 3 Digital Signature Certificate plus the statutory auditor's certification. MGT-7 needs Practicing Company Secretary (PCS) certification for companies above the prescribed thresholds. Plan DSC validity and auditor or PCS availability before the filing window closes.",
+      },
+      {
+        heading: "Common mistakes that create avoidable risk",
+        body: "Treating DPT-3 as optional when there are no deposits. Skipping event-based forms because they are not on a yearly calendar. Letting a DIN deactivate through a missed DIR-3 KYC. Assuming a nil return is never required. Each of these shows up regularly during diligence, loan documentation, and director onboarding.",
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the penalty for late ROC filing?",
+        answer:
+          "For AOC-4 and MGT-7, the late fee is ₹100 per day per form with no maximum cap for FY 2025-26 unless MCA notifies otherwise. Additional Companies Act penalties, DIN deactivation, director disqualification, and strike-off risk can also apply depending on what was missed and for how long.",
+      },
+      {
+        question: "Is ROC filing mandatory even if the company had no business activity during the year?",
+        answer:
+          "Yes. Dormancy does not remove the need for core annual ROC filings. A company with no operations still has annual return and financial statement filing duties unless it has completed a formal strike-off or other MCA closure process.",
+      },
+      {
+        question: "What is the difference between AOC-4 and MGT-7?",
+        answer:
+          "AOC-4 is the filing of financial statements with the ROC. MGT-7 (or MGT-7A for eligible OPCs and small companies) is the company's annual return covering shareholding, directors, and related company particulars.",
+      },
+      {
+        question: "Do private limited companies need to file DPT-3 even with no deposits?",
+        answer:
+          "In most cases, yes — a nil DPT-3 filing is still expected. Treating the form as optional when deposits are nil is one of the most common and costly ROC mistakes.",
+      },
+      {
+        question: "Can I file ROC forms myself without a CA or CS?",
+        answer:
+          "Some preparatory work can be done in-house, but several forms require a director DSC and professional certification. AOC-4 needs auditor certification, and MGT-7 needs PCS certification above certain thresholds. Most private companies still need a CA, CS, or compliance desk for clean filing.",
+      },
+    ],
+    relatedService: {
+      name: "Secretarial & ROC Filings",
+      href: "/services/accounting-compliance/secretarial-roc-filings",
+    },
+    image: getBlogCoverImage("roc-compliance-checklist-private-companies-india"),
+  },
+  "set-up-indian-subsidiary-foreign-company": {
+    slug: "set-up-indian-subsidiary-foreign-company",
+    title: "How to Set Up an Indian Subsidiary as a Foreign Company",
+    subhead:
+      "FDI eligibility, SPICe+ incorporation, resident director rules, and post-setup FEMA filings.",
+    excerpt:
+      "How foreign companies can set up a wholly owned Indian subsidiary — FDI route checks, SPICe+, documents, FC-GPR, and common mistakes.",
+    date: "July 14, 2026",
+    publishedAt: "2026-07-14",
+    readTime: "10 Min Read",
+    category: "global-private-wealth",
+    categoryName: "Global & Private Wealth",
+    author: BLOG_AUTHORS.deepa,
+    persona: "startup",
+    directAnswer:
+      "Most foreign companies can set up a 100%-owned Indian subsidiary through the Automatic FDI Route with no prior RBI or government approval, subject to sector rules. Incorporation usually completes in about 10–15 working days through MCA's SPICe+ once documents are ready. After share capital is received and allotted, Form FC-GPR filing with RBI is mandatory within 30 days.",
+    bullets: [
+      "Confirm your sector's FDI cap and Automatic vs Government Route first.",
+      "A private limited WOS generally needs at least 2 shareholders and 2 directors, including one resident director.",
+      "Foreign corporate documents usually need notarization and apostille/legalization.",
+      "SPICe+ covers incorporation plus PAN, TAN, and EPFO/ESIC in one flow.",
+      "Do not miss FC-GPR within 30 days of allotting shares to the foreign parent.",
+    ],
+    sections: [
+      {
+        heading: "What a wholly owned subsidiary actually is",
+        body: "A wholly owned subsidiary (WOS) is an India-incorporated company owned 100% by a foreign parent. It is a separate legal entity with local operating control — it can hire, invoice, and contract in India. FDI, FEMA, and Companies Act rules are sector-dependent and change with notification, so treat this as a general guide and complete a sector-specific FDI check before you commit to a structure.",
+      },
+      {
+        heading: "Choosing the right entry structure",
+        body: "A Liaison Office is a representative presence only and cannot invoice or earn revenue in India. A Branch Office can conduct limited permitted activities under more RBI oversight. A Project Office suits a specific contract. A Wholly Owned Subsidiary is the usual choice for real commercial presence because it allows normal business activity, hiring, invoicing, and contracting as an Indian company.",
+      },
+      {
+        heading: "Step 1 — Confirm FDI eligibility for your sector",
+        body: "Under the Automatic Route, most sectors allow FDI up to the permitted cap without prior government approval. The Government Route applies to sensitive sectors that need approval. Examples under current Consolidated FDI Policy practice include IT/software, many manufacturing activities, and B2B e-commerce marketplace models at up to 100% automatic; single-brand retail at 100% with conditions; multi-brand retail capped at 51% with government approval; insurance at 74% automatic with conditions evolving after Union Budget 2025; banking capped at 74%; and defence, telecom, and broadcasting with special restrictions. Always verify the current policy for your exact activity before drafting incorporation papers.",
+      },
+      {
+        heading: "Step 2 — Structure shareholders and directors",
+        body: "A private limited WOS generally needs a minimum of two shareholders and two directors. At least one director must be a resident director — a person who has stayed in India for the required minimum period in the preceding calendar year. Wholly foreign teams often discover this late. If no parent nominee qualifies, a local professional director can satisfy the requirement.",
+      },
+      {
+        heading: "Step 3 — Prepare and legalize foreign documents",
+        body: "The parent usually needs a board resolution authorizing the Indian subsidiary, appointing an authorized signatory, and approving the shareholding structure. Foreign corporate documents — certificate of incorporation, board resolution, and ID proofs — generally need notarization and apostille or legalization for Indian use. This step is often the real timeline bottleneck, not the Indian ROC filing itself.",
+      },
+      {
+        heading: "Step 4 — Reserve the name and incorporate via SPICe+",
+        body: "Name reservation and incorporation run through MCA's SPICe+ integrated form, which also handles PAN, TAN, and EPFO/ESIC registration. Once documents are ready, the whole incorporation process typically completes in about 10–15 working days. Some ROC steps complete faster, around 5–7 working days, while bank account opening often adds another 7–10 working days. Treat these as ranges, not guarantees.",
+      },
+      {
+        heading: "Step 5 — Open a bank account and bring in capital",
+        body: "Bank account opening for a foreign-owned Indian company typically takes 7–10 working days and needs the incorporation certificate, PAN, and KYC for directors and shareholders. Capital must come through normal banking channels under FDI rules.",
+      },
+      {
+        heading: "Step 6 — Post-incorporation FEMA and ROC compliance",
+        body: "File Form INC-20A within 180 days of incorporation to declare commencement of business. File Form FC-GPR with RBI within 30 days of allotting shares to the foreign parent — one of the most commonly missed steps by first-time foreign promoters, with FEMA compounding and penalty exposure if delayed. File the annual Foreign Liabilities and Assets (FLA) return for any company with foreign investment. Ongoing duties then match any Indian company: AOC-4, MGT-7, income tax returns, GST where applicable, board process, and audit.",
+      },
+      {
+        heading: "Common mistakes in India market entry",
+        body: "Starting incorporation before confirming sector-specific FDI eligibility. Underestimating apostille and legalization timelines. Missing the 30-day FC-GPR deadline after share allotment. Assuming a subsidiary is automatic when a Liaison or Branch Office may better fit an exploratory phase.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can a foreign company own 100% of an Indian subsidiary?",
+        answer:
+          "Often yes, where the Consolidated FDI Policy allows 100% FDI under the Automatic Route for that sector. Some sectors are capped or need government approval, so confirm eligibility for your exact activity first.",
+      },
+      {
+        question: "How long does it take to register a subsidiary company in India?",
+        answer:
+          "Once foreign documents are legalized and ready, SPICe+ incorporation commonly completes in about 10–15 working days. Bank account opening typically adds another 7–10 working days.",
+      },
+      {
+        question: "Does a wholly owned subsidiary in India need a resident director?",
+        answer:
+          "Yes. A private limited company generally needs at least one director who meets the resident director stay requirement for the preceding calendar year.",
+      },
+      {
+        question: "What is FC-GPR and when does it need to be filed?",
+        answer:
+          "FC-GPR is the FEMA filing that reports foreign share capital received by the Indian company. It must be filed with RBI within 30 days of allotting shares to the foreign parent.",
+      },
+      {
+        question: "What is the difference between a liaison office, branch office, and subsidiary in India?",
+        answer:
+          "A liaison office is representative only and cannot earn revenue. A branch office can do limited permitted activities under tighter RBI oversight. A subsidiary is a separate Indian company and is usually the structure for full commercial operations.",
+      },
+    ],
+    relatedService: {
+      name: "Setting Up Indian Subsidiaries",
+      href: "/services/global-private-wealth/setting-up-indian-subsidiaries",
+    },
+    image: getBlogCoverImage("set-up-indian-subsidiary-foreign-company"),
+  },
 };

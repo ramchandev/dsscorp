@@ -27,6 +27,8 @@ const SLUGS = [
   "gst-registration-process-india-2026",
   "how-nris-file-income-tax-return-india",
   "fema-rules-nri-repatriation",
+  "roc-compliance-checklist-private-companies-india",
+  "set-up-indian-subsidiary-foreign-company",
 ];
 
 function shell({ label, topicArt }) {
@@ -230,12 +232,62 @@ const illustrations = {
       <text x="0" y="135" text-anchor="middle" fill="${BRAND.offWhite}" font-family="Arial, sans-serif" font-size="20">FEMA Rules</text>
     `,
   }),
+  "roc-compliance-checklist-private-companies-india": shell({
+    label: "ROC compliance checklist for private companies",
+    topicArt: `
+      <rect x="-160" y="-100" width="200" height="230" rx="14" fill="rgba(255,255,255,0.08)" stroke="${BRAND.cyan}" stroke-width="2"/>
+      <rect x="-160" y="-100" width="200" height="40" rx="14" fill="${BRAND.steel}"/>
+      <text x="-60" y="-74" text-anchor="middle" fill="${BRAND.offWhite}" font-family="Arial, sans-serif" font-size="18" font-weight="700">ROC</text>
+      <rect x="-135" y="-40" width="22" height="22" rx="4" fill="${BRAND.chartreuse}"/>
+      <path d="M -130 -29 l 5 5 10 -12" fill="none" stroke="${BRAND.navy}" stroke-width="3" stroke-linecap="round"/>
+      <line x1="-100" y1="-28" x2="-20" y2="-28" stroke="${BRAND.offWhite}" stroke-width="5" opacity="0.45" stroke-linecap="round"/>
+      <rect x="-135" y="5" width="22" height="22" rx="4" fill="${BRAND.chartreuse}"/>
+      <path d="M -130 16 l 5 5 10 -12" fill="none" stroke="${BRAND.navy}" stroke-width="3" stroke-linecap="round"/>
+      <line x1="-100" y1="17" x2="-20" y2="17" stroke="${BRAND.offWhite}" stroke-width="5" opacity="0.45" stroke-linecap="round"/>
+      <rect x="-135" y="50" width="22" height="22" rx="4" fill="${BRAND.cyan}"/>
+      <line x1="-100" y1="62" x2="-35" y2="62" stroke="${BRAND.offWhite}" stroke-width="5" opacity="0.35" stroke-linecap="round"/>
+      <circle cx="110" cy="-10" r="58" fill="none" stroke="${BRAND.chartreuse}" stroke-width="5"/>
+      <text x="110" y="-2" text-anchor="middle" fill="${BRAND.chartreuse}" font-family="Arial, sans-serif" font-size="22" font-weight="700">AOC-4</text>
+      <text x="110" y="28" text-anchor="middle" fill="${BRAND.offWhite}" font-family="Arial, sans-serif" font-size="16">MGT-7</text>
+      <text x="0" y="160" text-anchor="middle" fill="${BRAND.offWhite}" font-family="Arial, sans-serif" font-size="20">Company Filings</text>
+    `,
+  }),
+  "set-up-indian-subsidiary-foreign-company": shell({
+    label: "Set up Indian subsidiary as a foreign company",
+    topicArt: `
+      <circle cx="-70" cy="-20" r="70" fill="none" stroke="${BRAND.cyan}" stroke-width="4"/>
+      <ellipse cx="-70" cy="-20" rx="70" ry="28" fill="none" stroke="${BRAND.steel}" stroke-width="3"/>
+      <line x1="-70" y1="-90" x2="-70" y2="50" stroke="${BRAND.steel}" stroke-width="3"/>
+      <rect x="40" y="-70" width="130" height="150" rx="14" fill="rgba(255,255,255,0.08)" stroke="${BRAND.chartreuse}" stroke-width="3"/>
+      <rect x="40" y="-70" width="130" height="36" rx="14" fill="${BRAND.chartreuse}"/>
+      <text x="105" y="-46" text-anchor="middle" fill="${BRAND.navy}" font-family="Arial, sans-serif" font-size="16" font-weight="700">INDIA WOS</text>
+      <line x1="60" y1="-10" x2="150" y2="-10" stroke="${BRAND.offWhite}" stroke-width="4" opacity="0.4" stroke-linecap="round"/>
+      <line x1="60" y1="20" x2="140" y2="20" stroke="${BRAND.offWhite}" stroke-width="4" opacity="0.35" stroke-linecap="round"/>
+      <line x1="60" y1="50" x2="125" y2="50" stroke="${BRAND.cyan}" stroke-width="4" stroke-linecap="round"/>
+      <path d="M -10 -20 H 30" stroke="${BRAND.chartreuse}" stroke-width="6" stroke-linecap="round"/>
+      <path d="M 18 -32 L 38 -20 L 18 -8" fill="none" stroke="${BRAND.chartreuse}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="0" y="120" text-anchor="middle" fill="${BRAND.offWhite}" font-family="Arial, sans-serif" font-size="20">Subsidiary Setup</text>
+    `,
+  }),
 };
 
 async function main() {
+  const onlySlugs = process.argv.slice(2);
+  const targetSlugs = onlySlugs.length > 0 ? onlySlugs : SLUGS;
+
+  // Rich AI covers live in public/blog/covers. Only rebuild SVG placeholders
+  // when explicitly requested: node scripts/generate-blog-covers.mjs <slug...>
+  if (onlySlugs.length === 0) {
+    console.log(
+      "Skipping SVG overwrite of AI covers. Pass slug args to generate specific SVG covers."
+    );
+    console.log("Example: node scripts/generate-blog-covers.mjs roc-compliance-checklist-private-companies-india");
+    return;
+  }
+
   fs.mkdirSync(outputDir, { recursive: true });
 
-  for (const slug of SLUGS) {
+  for (const slug of targetSlugs) {
     const svg = illustrations[slug];
     if (!svg) {
       throw new Error(`Missing illustration for ${slug}`);

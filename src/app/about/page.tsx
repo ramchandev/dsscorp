@@ -239,32 +239,42 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Profile 2: Ms. Deepa */}
+              {/* Profile 2: Mrs. Deepa Madan */}
               <div className="bg-off-white border border-border-hairline p-8 rounded-lg flex flex-col justify-between hover:border-cyan/50 hover:shadow-2xs transition-all">
                 <div className="space-y-4">
-                  <div className="w-20 h-20 rounded-full border-2 border-chartreuse/40 bg-navy/10 flex items-center justify-center font-heading font-bold text-2xl text-navy">
-                    D
+                  <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-chartreuse/40 bg-navy/10 flex items-center justify-center font-heading font-bold text-lg text-navy">
+                    <img
+                      src="/deepa-madan.png"
+                      alt="Mrs. Deepa Madan"
+                      className="object-cover w-full h-full object-[center_20%]"
+                    />
                   </div>
                   
                   <div>
                     <h3 className="font-heading font-bold text-lg text-navy">
-                      Ms. Deepa
+                      Mrs. Deepa Madan
                     </h3>
                     <span className="block text-xs font-body font-semibold text-chartreuse mt-0.5">
                       Managing Partner
                     </span>
                     <span className="block text-[10px] text-text-muted font-body mt-0.5">
-                      Corporate Governance & Administration
+                      M.Com., CA (Final)
                     </span>
                   </div>
 
                   <p className="font-body text-xs sm:text-sm text-text-secondary leading-relaxed pt-2 border-t border-border-hairline/60">
-                    Deepa leads our corporate governance, administrative audit desks, and statutory filing operations, ensuring that the firm's compliance operations align with absolute regulatory standards.
+                    Deepa has 15+ years of bank audit experience and works as Manager and Co-ordinator – Audits at M/s K Gopal Rao &amp; Co., Chartered Accountants, Chennai.
                   </p>
                 </div>
-                
-                {/* Empty block to align with sibling card */}
-                <div className="mt-6 pt-4 h-4" />
+
+                <div className="mt-6 pt-4">
+                  <Link
+                    href="/about/deepa-madan"
+                    className="inline-flex items-center gap-1 text-xs font-body font-semibold text-cyan hover:text-navy transition-colors"
+                  >
+                    View detailed credentials & timeline →
+                  </Link>
+                </div>
               </div>
 
             </div>

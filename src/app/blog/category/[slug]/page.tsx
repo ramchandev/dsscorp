@@ -7,6 +7,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import Breadcrumb from "@/components/Breadcrumb";
 import PersonaBadge from "@/components/PersonaBadge";
+import BlogAuthorBadge from "@/components/BlogAuthorBadge";
 import { blogDb } from "@/lib/blog";
 import { getArticlePath } from "@/lib/blog-utils";
 import { createPageMetadata } from "@/lib/seo";
@@ -133,11 +134,15 @@ export default async function InsightsCategoryPage({ params }: PageProps) {
                           <PersonaBadge persona={art.persona} />
                         </div>
 
-                        <h2 className="font-heading font-semibold text-base sm:text-lg text-navy group-hover:text-cyan transition-colors mb-3 line-clamp-2">
+                        <h2 className="font-heading font-semibold text-base sm:text-lg text-navy group-hover:text-cyan transition-colors mb-2 line-clamp-2">
                           <Link href={getArticlePath(art)}>
                             {art.title}
                           </Link>
                         </h2>
+
+                        <div className="mb-3">
+                          <BlogAuthorBadge author={art.author} />
+                        </div>
 
                         <p className="font-body text-xs sm:text-sm text-text-secondary leading-relaxed mb-6 line-clamp-3">
                           {art.excerpt}
